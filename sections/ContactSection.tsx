@@ -86,7 +86,7 @@ export const ContactSection: React.FC = () => {
               </div>
               <div className="flex flex-col gap-2 text-[18px]">
                 <p className="text-[#050505]/60">Email</p>
-                <p className="text-[#050505]">example@gmail.com</p>
+                <p className="text-[#050505]">info@vishwacorporation.com</p>
               </div>
             </div>
 
@@ -96,7 +96,7 @@ export const ContactSection: React.FC = () => {
               </div>
               <div className="flex flex-col gap-2 text-[18px]">
                 <p className="text-[#050505]/60">Phone</p>
-                <p className="text-[#050505]">+91 8435678921</p>
+                <p className="text-[#050505]">+91 9619500650</p>
               </div>
             </div>
 
@@ -106,7 +106,7 @@ export const ContactSection: React.FC = () => {
               </div>
               <div className="flex flex-col gap-2">
                 <p className="text-[18px] text-[#050505]/60">Address</p>
-                <p className="text-[20px] text-[#050505]">1901 Thornridge Cir. Shiloh, Hawaii 81063</p>
+                <p className="text-[20px] text-[#050505]">Gulalwadi, Mumbai, Maharashtra</p>
               </div>
             </div>
           </div>
