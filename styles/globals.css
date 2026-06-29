@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-white);
+  line-height: var(--leading-normal);
+}
+
+/* Headings use Syne */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Focus ring — accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-blue-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Section label utility */
+.section-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-amber);
+}
+
+/* Container */
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 20px;
+  }
+}

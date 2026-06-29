@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services Preview — Vishwa Corporation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; background: #05050A; }
+
+    /* ── SERVICES SECTION ── */
+    .services-section {
+      width: 100%;
+      background: #05050A;
+    }
+    .services-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 120px 64px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* ── Left ── */
+    .services-left {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding-top: 8px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #C8A96E;
+    }
+    .services-heading {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(32px, 3vw, 48px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+    }
+    .services-body {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.50);
+      max-width: 400px;
+    }
+    .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      background: #006AFF;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      line-height: 1;
+      transition: background 200ms;
+      width: fit-content;
+    }
+    .btn-contact:hover { background: #0055CC; }
+
+    /* ── Right: accordion ── */
+    .accordion {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .accordion-item {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: background 200ms ease;
+    }
+    .accordion-item:last-child { border-bottom: none; }
+    .accordion-item.open { background: #006AFF; }
+
+    .accordion-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 28px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+    }
+    .accordion-trigger-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.3;
+      color: rgba(255,255,255,0.80);
+      transition: color 200ms;
+    }
+    .accordion-item.open .accordion-trigger-label { color: #ffffff; }
+
+    .accordion-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      color: rgba(255,255,255,0.35);
+      transition: transform 250ms ease, color 200ms;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .accordion-item.open .accordion-icon {
+      transform: rotate(45deg);
+      color: rgba(255,255,255,0.75);
+    }
+
+    .accordion-body {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 250ms ease;
+      overflow: hidden;
+    }
+    .accordion-item.open .accordion-body {
+      grid-template-rows: 1fr;
+    }
+    .accordion-body-inner { overflow: hidden; }
+    .accordion-body p {
+      padding: 0 28px 20px;
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.70);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1023px) {
+      .services-inner { padding: 80px 40px; }
+      .services-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 640px) {
+      .services-inner { padding: 56px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="services-section" aria-labelledby="services-heading">
+    <div class="services-inner">
+      <div class="services-grid">
+
+        <!-- Left -->
+        <div class="services-left">
+          <p class="section-label">Our Services</p>
+
+          <h2 id="services-heading" class="services-heading">
+            Built for the World's Most Demanding Industries.
+          </h2>
+
+          <p class="services-body">
+            Optimal manufacturing solutions for industries including Aerospace
+            &amp; Defence, Marine Engineering, Power Generation and Automotive —
+            meeting AS9100, IATF and ISO standards.
+          </p>
+
+          <a href="#contact" class="btn-contact">
+            Contact Us
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M3 9h12M10.5 4.5 15 9l-4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Right: accordion -->
+        <div class="accordion" role="list">
+
+          <div class="accordion-item open" role="listitem">
+            <button class="accordion-trigger" aria-expanded="true" aria-controls="svc-0">
+              <span class="accordion-trigger-label">Precision Engineering</span>
+              <span class="accordion-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body" id="svc-0">
+              <div class="accordion-body-inner">
+                <p>End-to-end CNC machining, turning, milling and grinding to micron-level tolerances — meeting the most demanding aerospace, defence and marine specifications.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="svc-1">
+              <span class="accordion-trigger-label">Rapid Turnaround</span>
+              <span class="accordion-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body" id="svc-1">
+              <div class="accordion-body-inner">
+                <p>Streamlined production workflows and in-house warehousing allow us to dispatch orders faster than industry standard without compromising quality.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="svc-2">
+              <span class="accordion-trigger-label">Global Standards</span>
+              <span class="accordion-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body" id="svc-2">
+              <div class="accordion-body-inner">
+                <p>All manufacturing processes comply with ISO 9001:2015, AS9100, and IATF 16949 quality management systems — audit-ready at every stage.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="svc-3">
+              <span class="accordion-trigger-label">Expert Team</span>
+              <span class="accordion-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body" id="svc-3">
+              <div class="accordion-body-inner">
+                <p>Our engineers and metallurgists bring decades of specialised experience across alloy selection, process planning and technical drawing interpretation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="svc-4">
+              <span class="accordion-trigger-label">Comprehensive Range</span>
+              <span class="accordion-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body" id="svc-4">
+              <div class="accordion-body-inner">
+                <p>From raw material sourcing to finished components — fasteners, flanges, precision shafts, custom castings and specialty alloys under one roof.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="svc-5">
+              <span class="accordion-trigger-label">Proven Track Record</span>
+              <span class="accordion-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body" id="svc-5">
+              <div class="accordion-body-inner">
+                <p>Over 500 global clients trust Vishwa Corporation for repeat orders, with an on-time delivery rate consistently above 98% across 18 years.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next section placeholder -->
+  <div style="height:120px; background:#ffffff; display:flex; align-items:center; justify-content:center;">
+    <p style="font-size:12px; color:#bbb; letter-spacing:0.1em; text-transform:uppercase; font-family:Inter,sans-serif;">
+      Innovation / Gallery — coming in Phase 7
+    </p>
+  </div>
+
+  <script>
+    // Accordion toggle
+    document.querySelectorAll('.accordion-trigger').forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.accordion-item');
+        const isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.accordion-item').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

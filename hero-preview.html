@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero Preview — Vishwa Corporation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #05050A; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    :focus-visible { outline: 2px solid #1A5CFF; outline-offset: 3px; }
+
+    /* ─────────────────────────────────────────────
+       NAVBAR
+    ───────────────────────────────────────────── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      background: transparent;
+      transition: background 300ms ease, border-color 300ms ease;
+    }
+    .navbar.scrolled {
+      background: rgba(5,5,10,0.90);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .navbar__inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+    .navbar__left {
+      display: flex; align-items: center; gap: 32px; flex: 1;
+    }
+    .navbar__center {
+      display: flex; align-items: center; justify-content: center; flex: 1;
+    }
+    .navbar__right {
+      display: flex; align-items: center; gap: 28px; flex: 1; justify-content: flex-end;
+    }
+    .nav-link {
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.60);
+      letter-spacing: 0.01em; line-height: 1;
+      transition: color 200ms ease; cursor: pointer;
+    }
+    .nav-link:hover { color: #fff; }
+    .logo {
+      display: inline-flex; flex-direction: column;
+      align-items: center; gap: 2px; cursor: pointer;
+    }
+    .logo__wordmark {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 0.20em; text-transform: uppercase;
+      color: #ffffff; line-height: 1;
+    }
+    .logo__sub {
+      font-size: 9px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.35); line-height: 1;
+    }
+    .icon-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.22);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.50); cursor: pointer;
+      transition: border-color 200ms, color 200ms;
+      background: transparent;
+    }
+    .icon-btn:hover { border-color: rgba(255,255,255,0.60); color: #fff; }
+    .mobile-hamburger {
+      display: none; background: transparent; border: none;
+      color: white; cursor: pointer; margin-left: auto; padding: 8px;
+    }
+    .mobile-menu {
+      display: none;
+      background: rgba(5,5,10,0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 8px 24px 16px;
+    }
+    .mobile-menu a {
+      display: block; padding: 14px 0;
+      font-size: 15px; font-weight: 500;
+      color: rgba(255,255,255,0.80);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 200ms;
+    }
+    .mobile-menu a:hover { color: #fff; }
+
+    /* ─────────────────────────────────────────────
+       HERO SECTION
+    ───────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background: #05050A;
+    }
+
+    /* ── Glow orb ── */
+    .hero__glow {
+      pointer-events: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -80px;
+      width: 760px;
+      height: 620px;
+      z-index: 0;
+    }
+    .hero__glow-outer {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 35%,
+        rgba(30,80,255,0.22) 0%,
+        rgba(10,20,80,0.10) 55%,
+        transparent 80%);
+    }
+    .hero__glow-mid {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 42% 38% at 50% 30%,
+        rgba(60,120,255,0.28) 0%,
+        rgba(20,50,180,0.10) 50%,
+        transparent 75%);
+    }
+    .hero__glow-core {
+      position: absolute;
+      left: 50%; top: 13%;
+      transform: translateX(-50%);
+      width: 210px; height: 210px;
+      border-radius: 50%;
+      background: radial-gradient(circle,
+        rgba(200,220,255,0.95) 0%,
+        rgba(100,160,255,0.68) 28%,
+        rgba(40,100,255,0.36) 55%,
+        rgba(10,30,120,0.08) 80%,
+        transparent 100%);
+      filter: blur(2px);
+    }
+    .hero__glow-highlight {
+      position: absolute;
+      left: 50%; top: 17%;
+      transform: translateX(-50%);
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: radial-gradient(circle,
+        rgba(255,255,255,0.98) 0%,
+        rgba(200,215,255,0.78) 40%,
+        transparent 80%);
+      filter: blur(1px);
+    }
+
+    /* ── Content ── */
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex: 1;
+      padding-top: 162px;
+    }
+    .hero__inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      width: 100%;
+    }
+    .hero__label {
+      display: block;
+      margin-bottom: 22px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+    .hero__heading {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(36px, 5.0vw, 70px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.022em;
+      color: #ffffff;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .hero__subtext {
+      margin: 24px auto 0;
+      max-width: 500px;
+      font-size: clamp(14px, 1.05vw, 15.5px);
+      line-height: 1.68;
+      color: rgba(255,255,255,0.45);
+      font-weight: 400;
+    }
+    .hero__cta {
+      margin-top: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #ffffff;
+      background: #1A5CFF;
+      border: none;
+      border-radius: 6px;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: background 200ms ease, transform 150ms ease;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .btn-primary:hover { background: #1448D6; }
+    .btn-primary:active { transform: scale(0.98); }
+
+    /* ── Brand strip ── */
+    .hero__strip {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      margin-top: auto;
+    }
+    .hero__strip-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      margin-top: 60px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero__strip-label {
+      text-align: center;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      padding-top: 22px;
+      padding-bottom: 18px;
+    }
+    .hero__logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .hero__logo-item {
+      opacity: 0.30;
+      filter: grayscale(1) brightness(3);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    /* ─────────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────────── */
+    @media (max-width: 1023px) {
+      .navbar__left, .navbar__right { display: none; }
+      .navbar__center { flex: 0 0 auto; margin-right: auto; }
+      .mobile-hamburger { display: flex; }
+      .navbar__inner { padding: 0 20px; }
+    }
+    @media (max-width: 767px) {
+      .hero__inner { padding: 0 20px; }
+      .hero__content { padding-top: 130px; }
+      .hero__logos { gap: 24px; }
+      .hero__strip-inner { padding: 0 20px; margin-top: 40px; }
+      .hero__glow { width: 480px; height: 400px; top: -40px; }
+      .hero__glow-core { width: 160px; height: 160px; }
+      .hero__glow-highlight { width: 56px; height: 56px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
+  <header class="navbar" id="navbar" role="banner">
+    <div class="navbar__inner">
+      <nav class="navbar__left" aria-label="Left navigation">
+        <a class="nav-link" href="#about">About Us</a>
+        <a class="nav-link" href="#industries">Industries</a>
+      </nav>
+
+      <div class="navbar__center">
+        <a class="logo" href="/" aria-label="Vishwa Corporation — home">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 1L14.09 8.26L21 6L15.74 11L21 16L14.09 13.74L12 21L9.91 13.74L3 16L8.26 11L3 6L9.91 8.26L12 1Z" fill="white"/>
+            <circle cx="12" cy="11" r="2.4" fill="white" opacity="0.50"/>
+          </svg>
+          <span class="logo__wordmark">vishwa</span>
+          <span class="logo__sub">corporation</span>
+        </a>
+      </div>
+
+      <div class="navbar__right">
+        <a class="nav-link" href="#products">Products</a>
+        <a class="nav-link" href="#contact">Contact Us</a>
+        <button class="icon-btn" aria-label="Open menu">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="5.5" height="5.5" rx="1" fill="currentColor"/>
+            <rect x="8.5" y="1" width="5.5" height="5.5" rx="1" fill="currentColor"/>
+            <rect x="1" y="8.5" width="5.5" height="5.5" rx="1" fill="currentColor"/>
+            <rect x="8.5" y="8.5" width="5.5" height="5.5" rx="1" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+
+      <button class="mobile-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+          <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+      <a href="#about">About Us</a>
+      <a href="#industries">Industries</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="hero" aria-label="Hero — Connecting Global Metal Imports With Indian Exports">
+
+    <!-- Glow sphere -->
+    <div class="hero__glow" aria-hidden="true">
+      <div class="hero__glow-outer"></div>
+      <div class="hero__glow-mid"></div>
+      <div class="hero__glow-core"></div>
+      <div class="hero__glow-highlight"></div>
+    </div>
+
+    <!-- Main text content -->
+    <div class="hero__content">
+      <div class="hero__inner">
+        <span class="hero__label">We Are Global Partners</span>
+
+        <h1 class="hero__heading">
+          Connecting Global Metal Imports With Indian Exports.
+        </h1>
+
+        <p class="hero__subtext">
+          We bridge the gap between global demand and India's finest metal manufacturing — delivering precision, reliability, and quality at scale.
+        </p>
+
+        <div class="hero__cta">
+          <a href="#products" class="btn-primary">
+            Explore Products
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2.5 7h9M7.5 3.5 11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand logo strip -->
+    <div class="hero__strip">
+      <div class="hero__strip-inner">
+        <p class="hero__strip-label">Backed by India's most trusted manufacturers</p>
+        <div class="hero__logos" role="list" aria-label="Partner brands">
+          <span class="hero__logo-item" role="listitem">Tata Steel</span>
+          <span class="hero__logo-item" role="listitem">SAIL</span>
+          <span class="hero__logo-item" role="listitem">JSW</span>
+          <span class="hero__logo-item" role="listitem">Jindal</span>
+          <span class="hero__logo-item" role="listitem">RINL</span>
+          <span class="hero__logo-item" role="listitem">Essar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scroll-down sentinel for next section visual -->
+  <div style="height:100vh; background:#f7f7f7; display:flex; align-items:center; justify-content:center;">
+    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#aaa; letter-spacing:0.1em; text-transform:uppercase;">
+      Next section — Stats / Export (coming in Phase 4)
+    </p>
+  </div>
+
+  <script>
+    /* Navbar scroll state */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 24);
+    }, { passive: true });
+
+    /* Mobile menu */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let open = false;
+    hamburger.addEventListener('click', () => {
+      open = !open;
+      hamburger.setAttribute('aria-expanded', open);
+      mobileMenu.style.display = open ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>

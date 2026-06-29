@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Export + Stats Preview — Vishwa Corporation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; background: #fff; }
+
+    /* ── EXPORT SECTION ── */
+    .export-section {
+      width: 100%;
+      background: #ffffff;
+    }
+    .export-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 96px 80px 64px;
+    }
+    .section-label {
+      display: block;
+      margin-bottom: 32px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #C8A96E;
+    }
+    .export-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .export-heading {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(32px, 3.2vw, 52px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: #0A0A0F;
+      margin-bottom: 24px;
+    }
+    .export-body {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #5A5A5A;
+      max-width: 460px;
+    }
+    .map-wrapper {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+    .map-wrapper svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ── STATS SECTION ── */
+    .stats-section {
+      width: 100%;
+      background: #ffffff;
+    }
+    .stats-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+    .rule {
+      height: 1px;
+      width: 100%;
+      background: #E5E5E5;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 48px 40px;
+    }
+    .stat-item:not(:last-child) {
+      border-right: 1px solid #E5E5E5;
+    }
+    .stat-value {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(36px, 3.2vw, 52px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: #0A0A0F;
+    }
+    .stat-label {
+      font-size: 13px;
+      line-height: 1.55;
+      color: #6B6B6B;
+      font-weight: 400;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1023px) {
+      .export-grid { grid-template-columns: 1fr; gap: 48px; }
+      .export-inner { padding: 64px 40px 48px; }
+      .stats-inner { padding: 0 40px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(1), .stat-item:nth-child(2) { border-bottom: 1px solid #E5E5E5; }
+    }
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .export-inner { padding: 48px 20px 40px; }
+      .stats-inner { padding: 0 20px; }
+      .stat-item { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       EXPORT SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="export-section" aria-labelledby="export-heading">
+    <div class="export-inner">
+
+      <span class="section-label">About Vishwa</span>
+
+      <div class="export-grid">
+
+        <!-- Left: text -->
+        <div>
+          <h2 id="export-heading" class="export-heading">
+            We Export from India to 45+&nbsp;Countries.
+          </h2>
+          <p class="export-body">
+            Vishwa Corporation has been a trusted bridge between Indian manufacturing
+            excellence and global industry demand. We supply precision-engineered
+            metal components, alloys, and raw materials to clients in over 45 countries
+            across six continents.
+          </p>
+        </div>
+
+        <!-- Right: World map SVG -->
+        <div class="map-wrapper" role="img" aria-label="World map showing India's export routes">
+          <svg viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background -->
+            <rect width="800" height="450" fill="#F8F8F8" rx="8"/>
+
+            <!-- Continents (simplified) -->
+            <!-- North America -->
+            <path d="M60 80 L160 70 L195 95 L185 145 L155 165 L130 158 L100 172 L78 162 L58 140 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.8"/>
+            <!-- Central America -->
+            <path d="M155 165 L175 160 L182 182 L165 188 L148 180 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.8"/>
+            <!-- South America -->
+            <path d="M128 195 L168 185 L180 225 L176 278 L158 308 L134 312 L115 296 L107 255 L113 215 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.8"/>
+            <!-- Greenland -->
+            <path d="M200 40 L255 35 L265 55 L248 70 L215 68 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.8"/>
+            <!-- Europe -->
+            <path d="M308 58 L375 50 L394 68 L388 95 L368 108 L340 108 L313 96 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.8"/>
+            <!-- UK -->
+            <path d="M295 62 L308 58 L312 72 L300 78 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.8"/>
+            <!-- Africa -->
+            <path d="M310 118 L380 112 L392 138 L382 205 L365 248 L342 260 L316 248 L302 210 L298 165 L302 133 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.8"/>
+            <!-- Middle East -->
+            <path d="M392 98 L440 93 L452 118 L432 142 L392 137 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.8"/>
+            <!-- Central Asia -->
+            <path d="M450 65 L520 55 L538 80 L525 102 L490 108 L454 90 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.8"/>
+            <!-- India (highlighted) -->
+            <path d="M452 118 L494 113 L506 140 L500 178 L483 200 L466 204 L450 188 L440 162 L444 133 Z" fill="#DDEAFF" stroke="#1A5CFF" stroke-width="1.4"/>
+            <text x="472" y="162" font-size="8" fill="#1A5CFF" font-family="Inter,sans-serif" font-weight="600" text-anchor="middle">India</text>
+            <!-- Sri Lanka -->
+            <path d="M478 208 L486 205 L488 218 L479 220 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.6"/>
+            <!-- China -->
+            <path d="M504 60 L576 50 L598 80 L590 112 L558 122 L512 112 L497 88 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.8"/>
+            <!-- Japan/Korea -->
+            <path d="M610 70 L632 65 L638 82 L625 88 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.6"/>
+            <!-- SE Asia -->
+            <path d="M542 112 L596 106 L610 132 L594 158 L568 163 L545 152 L534 131 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.8"/>
+            <!-- Indonesia -->
+            <path d="M565 172 L640 165 L658 178 L648 192 L600 194 L564 185 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.8"/>
+            <!-- Australia -->
+            <path d="M578 252 L655 242 L674 272 L662 318 L628 332 L592 320 L573 290 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.8"/>
+            <!-- New Zealand -->
+            <path d="M690 320 L705 310 L712 332 L700 342 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.6"/>
+            <!-- Russia -->
+            <path d="M400 30 L680 20 L700 48 L690 62 L540 58 L400 50 Z" fill="#EBEBEB" stroke="#D2D2D2" stroke-width="0.8"/>
+
+            <!-- ── Route arcs from India (~472, 158) ── -->
+            <!-- To USA (east coast ~160,130) -->
+            <path d="M472 158 Q320 30 155 130" stroke="#E53935" stroke-width="1.5" fill="none" stroke-dasharray="5 3" opacity="0.9"/>
+            <!-- To Europe (~350,85) -->
+            <path d="M472 158 Q415 75 355 85" stroke="#E53935" stroke-width="1.5" fill="none" stroke-dasharray="5 3" opacity="0.9"/>
+            <!-- To Australia (~620,282) -->
+            <path d="M472 158 Q555 245 622 282" stroke="#E53935" stroke-width="1.5" fill="none" stroke-dasharray="5 3" opacity="0.9"/>
+            <!-- To SE Asia (~568,135) -->
+            <path d="M472 158 Q515 138 568 135" stroke="#E53935" stroke-width="1.5" fill="none" stroke-dasharray="5 3" opacity="0.9"/>
+            <!-- To Africa (~345,195) -->
+            <path d="M472 158 Q405 185 345 195" stroke="#E53935" stroke-width="1.5" fill="none" stroke-dasharray="5 3" opacity="0.9"/>
+            <!-- To Middle East (~418,118) -->
+            <path d="M472 158 Q445 132 418 118" stroke="#E53935" stroke-width="1.5" fill="none" stroke-dasharray="5 3" opacity="0.9"/>
+            <!-- To China (~552,88) -->
+            <path d="M472 158 Q508 118 552 88" stroke="#E53935" stroke-width="1.5" fill="none" stroke-dasharray="5 3" opacity="0.9"/>
+
+            <!-- ── Destination dots ── -->
+            <!-- USA -->
+            <circle cx="155" cy="130" r="6" fill="white" stroke="#E53935" stroke-width="1.8"/>
+            <circle cx="155" cy="130" r="2.5" fill="#E53935"/>
+            <!-- Europe -->
+            <circle cx="355" cy="85" r="6" fill="white" stroke="#E53935" stroke-width="1.8"/>
+            <circle cx="355" cy="85" r="2.5" fill="#E53935"/>
+            <!-- Australia -->
+            <circle cx="622" cy="282" r="6" fill="white" stroke="#E53935" stroke-width="1.8"/>
+            <circle cx="622" cy="282" r="2.5" fill="#E53935"/>
+            <!-- SE Asia -->
+            <circle cx="568" cy="135" r="6" fill="white" stroke="#E53935" stroke-width="1.8"/>
+            <circle cx="568" cy="135" r="2.5" fill="#E53935"/>
+            <!-- Africa -->
+            <circle cx="345" cy="195" r="6" fill="white" stroke="#E53935" stroke-width="1.8"/>
+            <circle cx="345" cy="195" r="2.5" fill="#E53935"/>
+            <!-- Middle East -->
+            <circle cx="418" cy="118" r="6" fill="white" stroke="#E53935" stroke-width="1.8"/>
+            <circle cx="418" cy="118" r="2.5" fill="#E53935"/>
+            <!-- China -->
+            <circle cx="552" cy="88" r="6" fill="white" stroke="#E53935" stroke-width="1.8"/>
+            <circle cx="552" cy="88" r="2.5" fill="#E53935"/>
+
+            <!-- India origin -->
+            <circle cx="472" cy="158" r="8" fill="white" stroke="#1A5CFF" stroke-width="2"/>
+            <circle cx="472" cy="158" r="3.5" fill="#1A5CFF"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       STATS SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="stats-section" aria-label="Key statistics">
+    <div class="stats-inner">
+      <div class="rule"></div>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-value">45+</span>
+          <p class="stat-label">Countries We<br>Actively Export</p>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">18Y</span>
+          <p class="stat-label">18 Years of<br>Industry Excellence</p>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">500+</span>
+          <p class="stat-label">Satisfied Clients<br>Across Platforms</p>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">ISO</span>
+          <p class="stat-label">Verified Quality<br>Standards</p>
+        </div>
+      </div>
+
+      <div class="rule"></div>
+    </div>
+  </section>
+
+  <!-- Next section placeholder -->
+  <div style="height:120px; background:#f7f7f7; display:flex; align-items:center; justify-content:center;">
+    <p style="font-size:12px; color:#aaa; letter-spacing:0.1em; text-transform:uppercase; font-family:Inter,sans-serif;">
+      About / Story section — coming in Phase 5
+    </p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navbar Preview — Vishwa Corporation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; background: #05050A; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      background: transparent;
+      transition: background 300ms ease, border-color 300ms ease;
+    }
+    .navbar.scrolled {
+      background: rgba(5, 5, 10, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .navbar__inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Left nav */
+    .navbar__left {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex: 1;
+    }
+
+    /* Center logo */
+    .navbar__center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+
+    /* Right nav */
+    .navbar__right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    /* Nav links */
+    .nav-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.01em;
+      line-height: 1;
+      transition: color 200ms ease;
+      cursor: pointer;
+    }
+    .nav-link:hover { color: #ffffff; }
+
+    /* Logo */
+    .logo {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      cursor: pointer;
+    }
+    .logo__emblem {
+      width: 24px;
+      height: 24px;
+    }
+    .logo__wordmark {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 1;
+    }
+    .logo__sub {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      line-height: 1;
+    }
+
+    /* Circle icon button */
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.55);
+      cursor: pointer;
+      transition: border-color 200ms ease, color 200ms ease;
+      background: transparent;
+    }
+    .icon-btn:hover {
+      border-color: rgba(255,255,255,0.65);
+      color: #fff;
+    }
+
+    /* ── DEMO CONTENT BELOW NAVBAR ── */
+    .demo-hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #05050A;
+    }
+    .demo-hero p {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Mobile */
+    .mobile-hamburger {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 8px;
+    }
+    .mobile-menu {
+      display: none;
+      background: rgba(5,5,10,0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 8px 24px 16px;
+    }
+    .mobile-menu a {
+      display: block;
+      padding: 14px 0;
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 200ms;
+    }
+    .mobile-menu a:hover { color: #fff; }
+
+    @media (max-width: 1023px) {
+      .navbar__left,
+      .navbar__right { display: none; }
+      .navbar__center { flex: 0 0 auto; margin-right: auto; }
+      .mobile-hamburger { display: flex; }
+    }
+    @media (max-width: 1023px) {
+      .navbar__inner { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar" role="banner">
+    <div class="navbar__inner">
+
+      <!-- Left -->
+      <nav class="navbar__left" aria-label="Primary navigation left">
+        <a class="nav-link" href="#about">About Us</a>
+        <a class="nav-link" href="#industries">Industries</a>
+      </nav>
+
+      <!-- Logo -->
+      <div class="navbar__center">
+        <a class="logo" href="/" aria-label="Vishwa Corporation — home">
+          <!-- Star emblem -->
+          <svg class="logo__emblem" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 1L14.09 8.26L21 6L15.74 11L21 16L14.09 13.74L12 21L9.91 13.74L3 16L8.26 11L3 6L9.91 8.26L12 1Z" fill="white"/>
+            <circle cx="12" cy="11" r="2.5" fill="white" opacity="0.55"/>
+          </svg>
+          <span class="logo__wordmark">vishwa</span>
+          <span class="logo__sub">corporation</span>
+        </a>
+      </div>
+
+      <!-- Right -->
+      <div class="navbar__right">
+        <a class="nav-link" href="#products">Products</a>
+        <a class="nav-link" href="#contact">Contact Us</a>
+        <!-- Circle / grid icon -->
+        <button class="icon-btn" aria-label="Open site menu">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="5.5" height="5.5" rx="1" fill="currentColor"/>
+            <rect x="8.5" y="1" width="5.5" height="5.5" rx="1" fill="currentColor"/>
+            <rect x="1" y="8.5" width="5.5" height="5.5" rx="1" fill="currentColor"/>
+            <rect x="8.5" y="8.5" width="5.5" height="5.5" rx="1" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="mobile-hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+          <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Primary navigation mobile">
+      <a href="#about">About Us</a>
+      <a href="#industries">Industries</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- Page scroll target (to demo scroll effect) -->
+  <main>
+    <div class="demo-hero">
+      <p>Hero section — coming in Phase 3</p>
+    </div>
+  </main>
+
+  <script>
+    // Scroll: add .scrolled class when user scrolls
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 24);
+    }, { passive: true });
+
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let open = false;
+    hamburger.addEventListener('click', () => {
+      open = !open;
+      hamburger.setAttribute('aria-expanded', open);
+      mobileMenu.style.display = open ? 'block' : 'none';
+      hamburger.innerHTML = open
+        ? `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+             <path d="M4 4L18 18M18 4L4 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+           </svg>`
+        : `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+             <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+           </svg>`;
+    });
+  </script>
+</body>
+</html>

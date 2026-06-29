@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Process Section Preview — Vishwa Corporation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; background: #f0f0f0; }
+
+    /* ── SECTION ── */
+    .process-section {
+      width: 100%;
+      background: #F7FBFD;
+    }
+    .process-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 100px 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 64px;
+    }
+
+    /* ── Header ── */
+    .process-header {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      border-radius: 9999px;
+      border: 1px solid rgba(0, 106, 255, 0.2);
+      background: rgba(0, 106, 255, 0.1);
+    }
+    .badge-text {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: #006AFF;
+    }
+
+    .heading-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .section-heading {
+      font-size: 56px;
+      font-weight: 500;
+      line-height: 1.1;
+      color: #050505;
+    }
+    .section-subtitle {
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 38px;
+      letter-spacing: -0.44px;
+      color: #050505;
+    }
+
+    /* ── Steps row ── */
+    .steps-row {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .step-wrapper {
+      position: relative;
+      flex: 1;
+    }
+
+    /* Gradient connector line — extends right past current card into gap + next */
+    .step-connector {
+      position: absolute;
+      top: 48px;
+      left: 75%;
+      width: 50%;
+      height: 2px;
+      background: linear-gradient(to right, #0087FD, #E5E7EB);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Card */
+    .step-card {
+      position: relative;
+      height: 275px;
+      border-radius: 16px;
+      border: 1px solid #E5E7EB;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      background: #FFFFFF;
+    }
+
+    .step-card.active {
+      background: linear-gradient(130.5deg, #006AFF 0%, #2CCCEB 100%);
+      box-shadow:
+        0px 9px 9.5px rgba(0,0,0,0.10),
+        0px 35px 17.5px rgba(0,0,0,0.09),
+        0px 79px 24px rgba(0,0,0,0.05),
+        0px 141px 28px rgba(0,0,0,0.01);
+    }
+
+    /* Ghost step number */
+    .step-number {
+      font-size: 60px;
+      font-weight: 400;
+      line-height: 60px;
+      letter-spacing: 0.26px;
+      color: #F3F4F6;
+    }
+
+    /* Content */
+    .step-content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .step-title {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 32px;
+      letter-spacing: 0.07px;
+      color: #050505;
+    }
+    .step-card.active .step-title {
+      color: #FFFFFF;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22.75px;
+      letter-spacing: -0.15px;
+      color: #4A5565;
+    }
+    .step-card.active .step-desc {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    /* ── CTA ── */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 52px;
+      border-radius: 9999px;
+      background: #006AFF;
+      padding: 14px 32px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .cta-text {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.32px;
+      color: #FFFFFF;
+      white-space: nowrap;
+    }
+
+    /* ── Bolt icon ── */
+    .bolt-icon { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- Prev section hint -->
+  <div style="height:64px; background:#ffffff; display:flex; align-items:center; justify-content:center;">
+    <p style="font-size:12px; color:#bbb; letter-spacing:0.1em; text-transform:uppercase; font-family:Inter,sans-serif;">← Innovation / Gallery Section</p>
+  </div>
+
+  <section class="process-section" aria-labelledby="process-heading">
+    <div class="process-inner">
+
+      <!-- Header -->
+      <div class="process-header">
+        <div class="badge">
+          <svg class="bolt-icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2.33 8.17C2.22 8.17 2.11 8.14 2.02 8.08C1.93 8.02 1.85 7.93 1.81 7.84C1.76 7.74 1.74 7.62 1.75 7.51C1.77 7.41 1.81 7.30 1.88 7.22L7.65 1.27C7.70 1.22 7.76 1.18 7.82 1.17C7.89 1.16 7.95 1.17 8.01 1.20C8.07 1.23 8.12 1.28 8.14 1.34C8.17 1.40 8.17 1.47 8.16 1.53L7.04 5.05C7.00 5.13 6.99 5.23 7.00 5.32C7.01 5.42 7.05 5.51 7.10 5.58C7.16 5.66 7.23 5.72 7.31 5.77C7.40 5.81 7.49 5.83 7.58 5.83H11.67C11.78 5.83 11.89 5.86 11.98 5.92C12.07 5.98 12.15 6.07 12.19 6.16C12.24 6.26 12.26 6.38 12.25 6.49C12.24 6.59 12.19 6.70 12.12 6.78L6.35 12.73C6.30 12.78 6.24 12.82 6.18 12.83C6.11 12.84 6.05 12.83 5.99 12.80C5.93 12.77 5.88 12.72 5.86 12.66C5.83 12.60 5.83 12.53 5.85 12.47L6.97 8.95C6.99 8.87 7.00 8.77 6.99 8.68C6.98 8.58 6.95 8.49 6.90 8.42C6.84 8.34 6.77 8.28 6.69 8.23C6.60 8.19 6.51 8.17 6.42 8.17H2.33Z" stroke="#006AFF" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="badge-text">Our Process</span>
+        </div>
+
+        <div class="heading-group">
+          <h2 id="process-heading" class="section-heading">How We Deliver Excellence</h2>
+          <p class="section-subtitle">A streamlined approach from inquiry to delivery</p>
+        </div>
+      </div>
+
+      <!-- Steps -->
+      <div class="steps-row">
+
+        <!-- Step 01 -->
+        <div class="step-wrapper">
+          <div class="step-connector"></div>
+          <div class="step-card">
+            <span class="step-number">01</span>
+            <div class="step-content">
+              <p class="step-title">Inquiry &amp; Consultation</p>
+              <p class="step-desc">Share your technical requirements and specifications</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 02 -->
+        <div class="step-wrapper">
+          <div class="step-connector"></div>
+          <div class="step-card">
+            <span class="step-number">02</span>
+            <div class="step-content">
+              <p class="step-title">Material Selection</p>
+              <p class="step-desc">We recommend optimal materials based on your application</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 03 (ACTIVE) -->
+        <div class="step-wrapper">
+          <div class="step-connector"></div>
+          <div class="step-card active">
+            <span class="step-number">03</span>
+            <div class="step-content">
+              <p class="step-title">Manufacturing</p>
+              <p class="step-desc">Precision production using advanced CNC and machining</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 04 -->
+        <div class="step-wrapper">
+          <div class="step-connector"></div>
+          <div class="step-card">
+            <span class="step-number">04</span>
+            <div class="step-content">
+              <p class="step-title">Quality Testing</p>
+              <p class="step-desc">Rigorous inspection and certification process</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 05 -->
+        <div class="step-wrapper">
+          <div class="step-card">
+            <span class="step-number">05</span>
+            <div class="step-content">
+              <p class="step-title">Delivery</p>
+              <p class="step-desc">Secure packaging and timely dispatch to your location</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <a href="#contact" class="cta-btn">
+        <span class="cta-text">Contact Us Now</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Next section placeholder -->
+  <div style="height:80px; background:#f0f0f0; display:flex; align-items:center; justify-content:center;">
+    <p style="font-size:12px; color:#bbb; letter-spacing:0.1em; text-transform:uppercase; font-family:Inter,sans-serif;">
+      Partnership Section — coming in Phase 9
+    </p>
+  </div>
+
+</body>
+</html>
