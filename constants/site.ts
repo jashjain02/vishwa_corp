@@ -12,9 +12,9 @@ export const NAV_LINKS = [
 
 export const STATS = [
   { value: '45+',  label: 'Countries We Actively Export To' },
-  { value: '18Y',  label: 'Years of Metallurgical Manufacturing Experience' },
+  { value: '18Y',  label: 'Years of Metallurgical & Precision Manufacturing Experience' },
   { value: '500+', label: 'Industrial Clients & OEM Partners' },
-  { value: '15+',  label: 'Specialty Copper Alloys & Grades Supplied' },
+  { value: '15+',  label: 'Engineering Materials & Alloy Grades Supplied' },
 ] as const;
 
 export const PROCESS_STEPS = [
@@ -30,12 +30,12 @@ export const SERVICES = [
   { title: 'Rapid Turnaround',        description: '' },
   { title: 'Global Material Standards', description: '' },
   { title: 'Expert Metallurgical Team', description: '' },
-  { title: 'Comprehensive Alloy Range', description: '' },
+  { title: 'Comprehensive Material Range', description: '' },
   { title: 'Proven Track Record',     description: '' },
 ] as const;
 
 export const GALLERY_ITEMS = [
-  { label: '01', caption: 'OXYGEN-FREE & ETP COPPER RODS', image: '' },
-  { label: '02', caption: 'SPECIALTY COPPER ALLOY BARS & PLATES', image: '' },
-  { label: '03', caption: 'COPPER SHEETS & FLATS', image: '' },
+  { label: '01', caption: 'OXYGEN-FREE & ETP COPPER WIRE ROD', image: '' },
+  { label: '02', caption: 'PRECISION-TURNED ALLOY COMPONENTS', image: '' },
+  { label: '03', caption: 'ENGINEERING ALLOY SHEET & FLAT STOCK', image: '' },
 ] as const;

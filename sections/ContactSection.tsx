@@ -59,10 +59,10 @@ const FIELD_BASE =
 export const ContactSection: React.FC = () => {
   return (
     <section aria-labelledby="contact-heading" className="w-full bg-white">
-      <div className="mx-auto flex max-w-[1440px] items-center gap-16 px-[100px] py-[120px]">
+      <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-12 px-6 py-12 sm:px-8 md:px-12 md:py-16 lg:flex-row lg:items-center lg:gap-16 lg:px-[100px] lg:py-[120px]">
 
         {/* ── Left: copy + contact details ── */}
-        <div className="flex flex-1 flex-col items-start gap-10">
+        <div className="flex w-full flex-col items-start gap-8 lg:flex-1 lg:gap-10">
           <div className="flex w-full flex-col items-start gap-4">
             <div className="flex w-fit items-center gap-2 rounded-full border border-[#006AFF]/20 bg-[#006AFF]/10 px-[13px] py-[7px]">
               <BoltIcon />
@@ -70,12 +70,13 @@ export const ContactSection: React.FC = () => {
                 Let&apos;s Build Together
               </span>
             </div>
-            <h2 id="contact-heading" className="text-[56px] font-medium leading-[1.1] text-[#050505]">
+            <h2 id="contact-heading" className="text-[28px] font-medium leading-[1.1] text-[#050505] sm:text-[36px] md:text-[44px] lg:text-[56px]">
               We Ship from India to Your Facility Worldwide.
             </h2>
-            <p className="text-[16px] leading-[26px] tracking-[-0.31px] text-[#050505]/70">
-              Send us your technical requirements or alloy specifications. Join industrial
-              leaders sourcing premium specialty copper and copper alloys from India.
+            <p className="text-[15px] leading-[24px] tracking-[-0.31px] text-[#050505]/70 lg:text-[16px] lg:leading-[26px]">
+              Send us your technical requirements or material specifications. Join industrial
+              leaders sourcing premium specialty copper alloys, engineering materials and
+              precision components from India.
             </p>
           </div>
 
@@ -113,8 +114,8 @@ export const ContactSection: React.FC = () => {
         </div>
 
         {/* ── Right: form card ── */}
-        <form className="flex w-[592px] shrink-0 flex-col gap-8 rounded-[24px] bg-[#f7f7f7] p-8">
-          <div className="flex gap-3">
+        <form className="flex w-full shrink-0 flex-col gap-6 rounded-[24px] bg-[#f7f7f7] p-5 sm:gap-8 sm:p-8 lg:w-[592px]">
+          <div className="flex flex-col gap-3 sm:flex-row">
             <label className="flex flex-1 flex-col gap-3 text-[14px] font-medium text-[#050505]">
               First Name
               <input type="text" placeholder="e.g. John" className={FIELD_BASE} />
@@ -125,7 +126,7 @@ export const ContactSection: React.FC = () => {
             </label>
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row">
             <label className="flex flex-1 flex-col gap-3 text-[14px] font-medium text-[#050505]">
               Email
               <input type="email" placeholder="e.g. johndoe@gmail.com" className={FIELD_BASE} />

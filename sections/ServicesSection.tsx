@@ -111,38 +111,38 @@ const SERVICES: ServiceItem[] = [
   {
     title: 'Precision Engineering',
     description:
-      'Advanced casting, extrusion, drawing, CNC turning, milling, and grinding capabilities enable us to manufacture copper and copper alloy components that consistently meet complex technical drawings and stringent conductivity, strength and dimensional tolerances.',
+      'Advanced casting, extrusion, drawing, CNC turning, milling and grinding capabilities enable us to manufacture copper alloys, engineering materials and precision components that consistently meet complex technical drawings and stringent conductivity, strength and dimensional tolerances.',
     stat: '±0.01mm Manufacturing Accuracy',
     Icon: WrenchIcon,
   },
   {
     title: 'Rapid Turnaround',
     description:
-      'Streamlined production workflows and in-house warehousing of copper rods, bars, sheets and alloy stock allow us to dispatch orders faster than industry standard without compromising material quality.',
+      'Streamlined production workflows and in-house stock of copper, copper alloys and engineering-grade materials allow us to dispatch orders and machined components faster than industry standard without compromising quality.',
     Icon: PlaneIcon,
   },
   {
     title: 'Global Material Standards',
     description:
-      'Our copper and copper alloy products are manufactured to international material specifications including ASTM, EN, JIS and BS standards, ensuring consistent composition, conductivity and mechanical performance — audit-ready at every stage.',
+      'Our copper alloys, engineering materials and precision components are manufactured to international material specifications including ASTM, EN, JIS and BS standards, ensuring consistent composition, conductivity and mechanical performance — audit-ready at every stage.',
     Icon: ShieldIcon,
   },
   {
     title: 'Expert Metallurgical Team',
     description:
-      'Our metallurgists and engineers bring decades of specialised experience across copper alloy selection, casting and extrusion process planning, and technical drawing interpretation for critical applications.',
+      'Our metallurgists and engineers bring decades of specialised experience across material selection, process planning for casting, extrusion and CNC machining, and technical drawing interpretation for critical applications.',
     Icon: MedalIcon,
   },
   {
-    title: 'Comprehensive Alloy Range',
+    title: 'Comprehensive Material Range',
     description:
-      'From oxygen-free and electrolytic tough pitch copper to beryllium, chromium, zirconium and tellurium copper alloys — a complete portfolio of rods, bars, sheets, tubes, profiles and precision components under one roof.',
+      'From oxygen-free, electrolytic, beryllium, chromium, zirconium, tellurium and molybdenum copper to high-performance engineering alloys and precision-machined components — a complete portfolio under one roof.',
     Icon: BriefcaseIcon,
   },
   {
     title: 'Proven Track Record',
     description:
-      'Industrial clients across 45+ export markets trust Vishwa Corporation for repeat orders of specialty copper products, with reliable on-time delivery and consistent material performance.',
+      'Industrial clients across 45+ export markets trust Vishwa Corporation for repeat orders of specialty copper alloys, engineering materials and precision components, with reliable on-time delivery and consistent performance.',
     Icon: GlobeIcon,
   },
 ];
@@ -153,31 +153,31 @@ export const ServicesSection: React.FC = () => {
 
   return (
     <section aria-labelledby="services-heading" className="w-full bg-[#050505]">
-      <div className="mx-auto flex max-w-[1440px] items-start gap-[80px] px-[64px] py-[120px]">
+      <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-12 px-6 py-12 sm:px-8 md:px-12 md:py-16 lg:flex-row lg:gap-[80px] lg:px-[64px] lg:py-[120px]">
 
         {/* ── Left: badge, heading, body, CTA ── */}
-        <div className="flex flex-1 flex-col items-start gap-10">
+        <div className="flex w-full flex-col items-start gap-8 lg:flex-1 lg:gap-10">
           <div className="flex w-full flex-col items-start gap-4">
             <div className="flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/20 px-[13px] py-[7px]">
               <span className="text-[12px] font-semibold uppercase tracking-[0.6px] text-white">
                 Competitive Edge
               </span>
             </div>
-            <h2 id="services-heading" className="w-[min-content] min-w-full text-[56px] font-medium leading-[1.1] text-white">
+            <h2 id="services-heading" className="w-full text-[28px] font-medium leading-[1.1] text-white sm:text-[36px] md:text-[44px] lg:w-[min-content] lg:min-w-full lg:text-[56px]">
               Built for the World&apos;s Most Demanding Industries.
             </h2>
-            <p className="w-[411px] text-[16px] leading-[26px] text-white/70">
-              Eighteen years of specialty copper and copper alloy manufacturing, supplying
-              electrical, aerospace, energy, marine and heavy engineering industries across
-              the globe.
+            <p className="w-full text-[15px] leading-[24px] text-white/70 lg:w-[411px] lg:text-[16px] lg:leading-[26px]">
+              Eighteen years of specialty copper, advanced engineering materials and precision
+              manufacturing experience, supplying electrical, aerospace, defence, marine, energy
+              and heavy engineering industries across the globe.
             </p>
           </div>
 
           <a
             href="#contact"
-            className="flex h-[56px] items-center gap-3 rounded-full bg-[#006AFF] px-8 py-[14px]"
+            className="flex h-[52px] items-center gap-3 rounded-full bg-[#006AFF] px-6 py-[12px] lg:h-[56px] lg:px-8 lg:py-[14px]"
           >
-            <span className="whitespace-nowrap text-[18px] font-semibold tracking-[-0.36px] text-white">
+            <span className="whitespace-nowrap text-[16px] font-semibold tracking-[-0.36px] text-white lg:text-[18px]">
               Contact Us Now
             </span>
             <ArrowRightIcon />
@@ -185,17 +185,17 @@ export const ServicesSection: React.FC = () => {
         </div>
 
         {/* ── Right: icon-rail accordion timeline ── */}
-        <div className="relative grid w-[780px] shrink-0 grid-cols-[56px_1fr] gap-x-[40px] gap-y-[10px]">
-          <div className="absolute bottom-[28px] left-[28px] top-[28px] w-px bg-white/10" />
+        <div className="relative grid w-full grid-cols-[40px_1fr] gap-x-4 gap-y-[10px] sm:grid-cols-[48px_1fr] sm:gap-x-6 lg:w-[780px] lg:shrink-0 lg:grid-cols-[56px_1fr] lg:gap-x-[40px]">
+          <div className="absolute bottom-5 left-5 top-5 w-px bg-white/10 sm:bottom-6 sm:left-6 sm:top-6 lg:bottom-[28px] lg:left-[28px] lg:top-[28px]" />
 
           {SERVICES.map((service, i) => {
             const isOpen = openIndex === i;
             const { Icon } = service;
             return (
               <React.Fragment key={service.title}>
-                <div className="relative z-10 flex size-[56px] items-center justify-center rounded-full p-1" style={{ background: isOpen ? 'rgba(0,106,255,0.18)' : '#121212' }}>
+                <div className="relative z-10 flex size-10 items-center justify-center rounded-full p-1 sm:size-12 lg:size-[56px]" style={{ background: isOpen ? 'rgba(0,106,255,0.18)' : '#121212' }}>
                   <div
-                    className="flex size-[48px] items-center justify-center rounded-full"
+                    className="flex size-8 items-center justify-center rounded-full sm:size-10 lg:size-[48px]"
                     style={{ background: isOpen ? '#006AFF' : '#252525' }}
                   >
                     <Icon />
@@ -206,13 +206,13 @@ export const ServicesSection: React.FC = () => {
                   onClick={() => setOpenIndex(isOpen ? -1 : i)}
                   aria-expanded={isOpen}
                   aria-controls={`service-body-${i}`}
-                  className="relative z-10 flex flex-col items-start rounded-[20px] p-6 text-left"
+                  className="relative z-10 flex flex-col items-start rounded-[20px] p-4 text-left sm:p-5 lg:p-6"
                   style={{
                     background: isOpen ? 'linear-gradient(135deg, #3a8bfc, #006aff)' : '#121212',
                   }}
                 >
                   <div className="flex w-full items-center justify-between gap-4">
-                    <span className="text-[24px] font-medium leading-[1.2] tracking-[0.15px] text-white">
+                    <span className="text-[17px] font-medium leading-[1.2] tracking-[0.15px] text-white sm:text-[20px] lg:text-[24px]">
                       {service.title}
                     </span>
                     <ChevronIcon open={isOpen} />

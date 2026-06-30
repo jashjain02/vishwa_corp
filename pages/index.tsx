@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import { Navbar } from '../components/Navbar';
 import { HeroSection } from '../sections/HeroSection';
 import { ExportSection } from '../sections/ExportSection';
@@ -15,6 +16,13 @@ import { FooterSection } from '../sections/FooterSection';
 const HomePage: React.FC = () => {
   return (
     <>
+      <Head>
+        <title>Vishwa Corporation | Engineering Materials, Copper Alloys & Precision Manufacturing</title>
+        <meta
+          name="description"
+          content="Vishwa Corporation manufactures specialty copper alloys, advanced engineering materials and precision CNC-machined components for aerospace, defence, marine, electrical and industrial applications. Exporting from India to 45+ countries."
+        />
+      </Head>
       <Navbar />
       <main>
         <HeroSection />

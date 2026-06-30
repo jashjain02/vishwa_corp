@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import logoMark from '../assets/images/logo-mark.png';
 
 const LEFT_LINKS = [
-  { href: '#export', lines: ['Request', 'Copper Supply'] },
+  { href: '#export', lines: ['Request', 'a Quote'] },
   { href: '#partner', lines: ['Partner', 'with Us'] },
 ] as const;
 
@@ -31,7 +31,7 @@ export const Navbar: React.FC = () => {
         scrolled ? 'bg-black/60 backdrop-blur-md' : 'bg-transparent',
       ].join(' ')}
     >
-      <div className="max-w-[1440px] mx-auto flex items-center justify-between px-[64px] py-[24px]">
+      <div className="max-w-[1440px] mx-auto flex items-center justify-between px-4 py-3 sm:px-6 md:px-10 lg:px-[64px] lg:py-[24px]">
 
         {/* ── Left links (desktop) ── */}
         <nav
@@ -54,10 +54,10 @@ export const Navbar: React.FC = () => {
         <a
           href="/"
           aria-label="Vishwa Corporation — home"
-          className="relative h-[40px] w-[222px] overflow-hidden"
+          className="relative h-[22px] w-[120px] overflow-hidden md:h-[31px] md:w-[170px] lg:h-[40px] lg:w-[222px]"
         >
           <span
-            className="absolute left-[0.21px] top-[-15.38px] block h-[73.85px] w-[221.59px] bg-white"
+            className="absolute left-[0.11px] top-[-8.31px] block h-[39.92px] w-[119.78px] bg-white md:left-[0.16px] md:top-[-11.78px] md:h-[56.55px] md:w-[169.69px] lg:left-[0.21px] lg:top-[-15.38px] lg:h-[73.85px] lg:w-[221.59px]"
             style={{
               WebkitMaskImage: `url(${logoMark.src})`,
               maskImage: `url(${logoMark.src})`,
@@ -135,7 +135,7 @@ export const Navbar: React.FC = () => {
         >
           <ul className="flex flex-col px-6 py-4 gap-1" role="list">
             {[
-              { href: '#export', label: 'Request Copper Supply' },
+              { href: '#export', label: 'Request a Quote' },
               { href: '#partner', label: 'Partner with Us' },
               { href: '#contact', label: 'Contact Us' },
             ].map((link) => (

@@ -19,14 +19,14 @@ export const FooterSection: React.FC = () => {
           'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(0,90,220,0.55) 0%, rgba(2,30,80,0.4) 45%, rgba(5,5,5,0) 75%)',
       }}
     >
-      <div className="relative z-10 mx-auto flex min-h-[743px] max-w-[1440px] flex-col justify-center gap-[42px] px-[64px] py-[80px]">
+      <div className="relative z-10 mx-auto flex min-h-0 max-w-[1440px] flex-col justify-center gap-8 px-6 py-12 sm:px-8 md:px-12 md:py-16 lg:min-h-[743px] lg:gap-[42px] lg:px-[64px] lg:py-[80px]">
 
         <div
-          className="relative h-[40px] w-[205px] overflow-hidden"
+          className="relative h-[27px] w-[140px] overflow-hidden md:h-[34px] md:w-[175px] lg:h-[40px] lg:w-[205px]"
           aria-label="Vishwa Corporation"
         >
           <span
-            className="absolute left-0 top-[-14px] block h-[71px] w-[213px] bg-white"
+            className="absolute left-0 top-[-9.56px] block h-[48.49px] w-[145.46px] bg-white md:top-[-11.95px] md:h-[60.61px] md:w-[181.83px] lg:top-[-14px] lg:h-[71px] lg:w-[213px]"
             style={{
               WebkitMaskImage: `url(${logoMark.src})`,
               maskImage: `url(${logoMark.src})`,
@@ -38,8 +38,8 @@ export const FooterSection: React.FC = () => {
           />
         </div>
 
-        <div className="flex flex-wrap items-end justify-between gap-12">
-          <h2 className="text-[58px] font-semibold uppercase leading-[0.95] tracking-[-0.15px] text-white">
+        <div className="flex flex-col items-start gap-10 lg:flex-row lg:flex-wrap lg:items-end lg:justify-between lg:gap-12">
+          <h2 className="text-[32px] font-semibold uppercase leading-[0.95] tracking-[-0.15px] text-white sm:text-[42px] md:text-[50px] lg:text-[58px]">
             <span className="inline-flex items-center align-middle">
               PRECISI
               <GearIcon />
@@ -48,19 +48,19 @@ export const FooterSection: React.FC = () => {
             <br />
             <span className="text-[#006AFF]">ENGINEERED</span>
             <br />
-            <span className="block text-[35px] font-normal normal-case">for India&apos;s Elite Industries</span>
+            <span className="block text-[18px] font-normal normal-case sm:text-[24px] md:text-[30px] lg:text-[35px]">for India&apos;s Elite Industries</span>
           </h2>
 
           <div className="flex flex-col gap-6">
-            <p className="w-[449px] max-w-full text-[32px] leading-[38px] tracking-[-0.44px] text-white">
-              Specialty copper &amp; copper alloys, engineered for critical applications
+            <p className="w-full max-w-[449px] text-[20px] leading-[1.3] tracking-[-0.2px] text-white sm:text-[26px] lg:text-[32px] lg:leading-[38px] lg:tracking-[-0.44px]">
+              Specialty alloys &amp; precision-engineered components, built for critical applications
             </p>
-            <nav aria-label="Footer navigation" className="flex items-center justify-between gap-10">
+            <nav aria-label="Footer navigation" className="flex flex-wrap items-center gap-x-6 gap-y-3 lg:justify-between lg:gap-10">
               {FOOTER_LINKS.map((link) => (
                 <a
                   key={link}
                   href="#"
-                  className="whitespace-nowrap text-[16px] tracking-[-0.15px] text-white hover:text-white/70"
+                  className="whitespace-nowrap text-[14px] tracking-[-0.15px] text-white hover:text-white/70 lg:text-[16px]"
                 >
                   {link}
                 </a>
@@ -71,7 +71,7 @@ export const FooterSection: React.FC = () => {
 
         <div className="h-px w-full bg-white/15" />
 
-        <p className="text-center text-[20px] tracking-[-0.4px] text-white">
+        <p className="text-center text-[15px] tracking-[-0.4px] text-white lg:text-[20px]">
           © 2026 Vishwa Corporation. All rights reserved.
         </p>
       </div>

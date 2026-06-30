@@ -61,7 +61,7 @@ const ArrowRightIcon: React.FC = () => (
 export const HeroSection: React.FC = () => {
   return (
     <section
-      aria-label="Hero — Precision Copper & Specialty Alloys for Critical Industries"
+      aria-label="Hero — Advanced Engineering Materials & Precision Manufacturing for Critical Industries"
       className="relative w-full overflow-hidden bg-black"
     >
       {/* ── Glowing sphere background image ── */}
@@ -85,39 +85,39 @@ export const HeroSection: React.FC = () => {
       />
 
       {/* ── Content ── */}
-      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-center gap-12 px-[141px] pt-[324px] pb-[97px]">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-center gap-8 px-6 pt-[140px] pb-12 sm:px-8 md:gap-10 md:px-12 md:pt-[200px] md:pb-16 lg:gap-12 lg:px-[141px] lg:pt-[324px] lg:pb-[97px]">
 
         <div className="flex w-full max-w-[616px] flex-col items-center gap-4">
           {/* Badge */}
           <div className="flex items-center justify-center gap-[6px] rounded-[50px] bg-white/10 px-3 py-[6px]">
             <SparkIcon />
-            <p className="whitespace-nowrap text-center text-[14px] font-normal uppercase text-white">
-              Specialty Copper &amp; Alloy Manufacturer
+            <p className="whitespace-nowrap text-center text-[12px] font-normal uppercase text-white sm:text-[13px] lg:text-[14px]">
+              Engineering Materials &amp; Precision Manufacturing
             </p>
           </div>
 
           {/* Headline + subtext */}
-          <div className="flex flex-col items-center justify-center gap-10">
+          <div className="flex flex-col items-center justify-center gap-6 md:gap-8 lg:gap-10">
             <div className="flex flex-col items-center gap-4 text-center">
-              <h1 className="w-[617px] max-w-full text-[70px] font-medium capitalize leading-[1.1] tracking-[-2.1px] text-white">
-                Precision Copper &amp; Specialty Alloys, Engineered for Critical Industries.
+              <h1 className="w-full max-w-[617px] text-[28px] font-medium capitalize leading-[1.15] tracking-[-0.8px] text-white sm:text-[34px] md:text-[46px] md:tracking-[-1.3px] lg:text-[60px] lg:tracking-[-1.8px]">
+                Advanced Engineering Materials &amp; Precision Manufacturing for Critical Industries.
               </h1>
-              <p className="w-[541px] max-w-full text-[16px] font-normal leading-[24px] text-white/70">
-                We manufacture and supply oxygen-free copper, beryllium copper, chromium copper
-                and other specialty alloys engineered for electrical, aerospace, defence and
-                high-performance industrial applications across 45+ countries.
+              <p className="w-full max-w-[541px] text-[14px] font-normal leading-[22px] text-white/70 sm:text-[15px] lg:text-[16px] lg:leading-[24px]">
+                We manufacture and supply specialty copper alloys, high-performance engineering
+                materials and precision CNC-machined components engineered for electrical,
+                aerospace, defence, marine and industrial applications across 45+ countries.
               </p>
             </div>
 
             {/* CTA */}
             <a
               href="#contact"
-              className="relative flex items-center justify-center gap-[10px] overflow-visible rounded-[100px] border border-white bg-[#006aff] px-6 py-4 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
+              className="relative flex items-center justify-center gap-[10px] overflow-visible rounded-[100px] border border-white bg-[#006aff] px-5 py-3 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] sm:px-6 sm:py-4"
             >
               <span className="absolute bottom-[-13px] left-1/2 h-6 w-[120px] -translate-x-1/2">
                 <Image src={buttonEllipseGlow} alt="" fill />
               </span>
-              <span className="whitespace-nowrap text-[18px] font-semibold tracking-[-0.36px] text-white">
+              <span className="whitespace-nowrap text-[15px] font-semibold tracking-[-0.36px] text-white sm:text-[18px]">
                 Contact Us Now
               </span>
               <ArrowRightIcon />
@@ -129,22 +129,22 @@ export const HeroSection: React.FC = () => {
         <div className="h-px w-full bg-gradient-to-r from-white/0 via-white/20 to-white/0" />
 
         {/* Trusted-by + logo strip */}
-        <div className="flex flex-col items-center gap-10">
-          <p className="text-center text-[16px] leading-[31.2px] tracking-[-0.648px] text-white/[0.64]">
+        <div className="flex flex-col items-center gap-6 md:gap-8 lg:gap-10">
+          <p className="text-center text-[13px] leading-[1.4] tracking-[-0.648px] text-white/[0.64] sm:text-[14px] lg:text-[16px] lg:leading-[31.2px]">
             Trusted by India&apos;s Leading Industrial OEMs
           </p>
 
-          <div className="relative w-[1159px] max-w-full overflow-hidden">
-            <div className="flex items-center justify-center gap-[44.5px]">
+          <div className="relative w-full max-w-[1159px] overflow-hidden">
+            <div className="flex items-center justify-center gap-6 overflow-x-auto sm:gap-8 md:gap-[44.5px]">
               {CLIENT_LOGOS.map((src, i) => (
-                <div key={i} className="relative size-[72px] shrink-0 opacity-70 mix-blend-luminosity">
+                <div key={i} className="relative size-12 shrink-0 opacity-70 mix-blend-luminosity sm:size-14 lg:size-[72px]">
                   <Image src={src} alt="" fill className="object-contain" />
                 </div>
               ))}
             </div>
             {/* Edge fade-to-black */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-[102px] bg-gradient-to-r from-black to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-[102px] bg-gradient-to-l from-black to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-black to-transparent lg:w-[102px]" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black to-transparent lg:w-[102px]" />
           </div>
         </div>
       </div>

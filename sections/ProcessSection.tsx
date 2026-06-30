@@ -31,19 +31,19 @@ const STEPS: Step[] = [
   {
     index: '01',
     title: 'Inquiry & Consultation',
-    description: 'Share your technical requirements, alloy grade and dimensional specifications',
+    description: 'Share your technical requirements, material grade and dimensional specifications',
     hasConnector: true,
   },
   {
     index: '02',
     title: 'Material Selection',
-    description: 'We recommend the optimal copper or copper alloy grade for your application',
+    description: 'We recommend the optimal copper alloy or engineering material for your application',
     hasConnector: true,
   },
   {
     index: '03',
     title: 'Manufacturing',
-    description: 'Precision casting, extrusion, drawing and machining of copper and copper alloys',
+    description: 'Precision casting, extrusion, drawing, CNC machining and fabrication of copper alloys and engineering materials',
     active: true,
     hasConnector: true,
   },
@@ -65,7 +65,7 @@ const STEPS: Step[] = [
 export const ProcessSection: React.FC = () => {
   return (
     <section aria-labelledby="process-heading" className="w-full" style={{ background: '#F7FBFD' }}>
-      <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-[64px] px-[64px] py-[100px]">
+      <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-10 px-6 py-12 sm:px-8 md:px-12 md:py-16 lg:gap-[64px] lg:px-[64px] lg:py-[100px]">
 
         {/* ── Header: badge + heading + subtitle ── */}
         <div className="flex w-full flex-col items-start gap-4">
@@ -76,15 +76,15 @@ export const ProcessSection: React.FC = () => {
             </span>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3 lg:gap-4">
             <h2
               id="process-heading"
-              className="text-[56px] font-medium leading-[1.1] text-[#050505]"
+              className="text-[28px] font-medium leading-[1.1] text-[#050505] sm:text-[36px] md:text-[44px] lg:text-[56px]"
             >
               How We Deliver Excellence
             </h2>
             <p
-              className="text-[32px] font-normal leading-[38px] tracking-[-0.44px] text-[#050505]"
+              className="text-[18px] font-normal leading-[1.3] tracking-[-0.2px] text-[#050505] sm:text-[24px] lg:text-[32px] lg:leading-[38px] lg:tracking-[-0.44px]"
               style={{ fontFamily: 'Manrope, sans-serif' }}
             >
               A streamlined approach from inquiry to delivery
@@ -93,13 +93,13 @@ export const ProcessSection: React.FC = () => {
         </div>
 
         {/* ── Step cards ── */}
-        <div className="flex w-full items-start gap-6">
+        <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:flex lg:items-start lg:gap-6">
           {STEPS.map((step) => (
-            <div key={step.index} className="relative flex-1">
-              {/* Gradient connector line (extends right, overlaps into gap + next card) */}
+            <div key={step.index} className="relative lg:flex-1">
+              {/* Gradient connector line (extends right, overlaps into gap + next card) — desktop row layout only */}
               {step.hasConnector && (
                 <div
-                  className="pointer-events-none absolute top-[48px] z-10 h-[2px]"
+                  className="pointer-events-none absolute top-[48px] z-10 hidden h-[2px] lg:block"
                   style={{
                     left: '75%',
                     width: '50%',
@@ -110,7 +110,7 @@ export const ProcessSection: React.FC = () => {
 
               {/* Card */}
               <div
-                className="relative flex h-[275px] flex-col gap-6 rounded-[16px] border border-[#E5E7EB] p-6"
+                className="relative flex h-auto min-h-[180px] flex-col gap-4 rounded-[16px] border border-[#E5E7EB] p-5 lg:h-[275px] lg:gap-6 lg:p-6"
                 style={
                   step.active
                     ? {
@@ -123,7 +123,7 @@ export const ProcessSection: React.FC = () => {
               >
                 {/* Ghost step number */}
                 <span
-                  className="text-[60px] font-normal leading-[60px] tracking-[0.26px]"
+                  className="text-[40px] font-normal leading-[1] tracking-[0.26px] lg:text-[60px] lg:leading-[60px]"
                   style={{ color: '#F3F4F6' }}
                 >
                   {step.index}
@@ -132,13 +132,13 @@ export const ProcessSection: React.FC = () => {
                 {/* Title + description */}
                 <div className="flex flex-col gap-2">
                   <p
-                    className="text-[24px] font-normal leading-[32px] tracking-[0.07px]"
+                    className="text-[18px] font-normal leading-[1.3] tracking-[0.07px] lg:text-[24px] lg:leading-[32px]"
                     style={{ color: step.active ? '#FFFFFF' : '#050505' }}
                   >
                     {step.title}
                   </p>
                   <p
-                    className="text-[14px] font-normal leading-[22.75px] tracking-[-0.15px]"
+                    className="text-[13px] font-normal leading-[1.5] tracking-[-0.15px] lg:text-[14px] lg:leading-[22.75px]"
                     style={{ color: step.active ? 'rgba(255,255,255,0.85)' : '#4A5565' }}
                   >
                     {step.description}
