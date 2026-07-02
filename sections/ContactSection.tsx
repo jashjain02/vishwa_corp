@@ -58,7 +58,7 @@ const FIELD_BASE =
 /** Figma node 34:3870 — "We Ship from India to Your Facility Worldwide." */
 export const ContactSection: React.FC = () => {
   return (
-    <section aria-labelledby="contact-heading" className="w-full bg-white">
+    <section id="contact" aria-labelledby="contact-heading" className="w-full bg-white">
       <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-12 px-6 py-12 sm:px-8 md:px-12 md:py-16 lg:flex-row lg:items-center lg:gap-16 lg:px-[100px] lg:py-[120px]">
 
         {/* ── Left: copy + contact details ── */}

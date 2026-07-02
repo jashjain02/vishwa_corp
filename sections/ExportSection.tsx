@@ -18,7 +18,7 @@ const GlobeIcon: React.FC = () => (
 /** Figma node 34:455 — "We Export from India to 45+ Countries." */
 export const ExportSection: React.FC = () => {
   return (
-    <section aria-labelledby="export-heading" className="w-full bg-white">
+    <section id="export" aria-labelledby="export-heading" className="w-full bg-white">
       <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-10 px-6 py-12 sm:px-8 md:px-12 md:py-16 lg:flex-row lg:items-center lg:gap-[126px] lg:px-[64px] lg:py-[120px]">
 
         {/* Left — badge, heading, body */}

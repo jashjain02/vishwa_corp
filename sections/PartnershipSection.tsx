@@ -47,7 +47,7 @@ const HandshakeIcon: React.FC = () => (
 /** Figma node 34:3838 — "Building Strategic Metal Partnerships Across Global & Indian Markets." */
 export const PartnershipSection: React.FC = () => {
   return (
-    <section aria-labelledby="partnership-heading" className="w-full bg-[#f7f7f7]">
+    <section id="partner" aria-labelledby="partnership-heading" className="w-full bg-[#f7f7f7]">
       <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-10 px-6 py-12 sm:px-8 md:px-12 md:py-16 wide:flex-row wide:items-center wide:gap-16 lg:px-[64px] lg:py-[100px]">
 
         <div className="relative h-[260px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[360px] wide:h-[646px] wide:w-[657px]">
