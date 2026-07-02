@@ -22,15 +22,32 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handler);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
+
   return (
-    <header
-      role="banner"
-      className={[
-        'fixed top-0 left-0 right-0 z-50',
-        'transition-all duration-300 ease-out',
-        scrolled ? 'bg-black/60 backdrop-blur-md' : 'bg-transparent',
-      ].join(' ')}
-    >
+    <>
+      {/* ── Dim overlay behind mobile drawer, signals locked scroll ── */}
+      {menuOpen && (
+        <div
+          aria-hidden="true"
+          onClick={() => setMenuOpen(false)}
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-[2px] lg:hidden transition-opacity duration-300"
+        />
+      )}
+
+      <header
+        role="banner"
+        className={[
+          'fixed top-0 left-0 right-0 z-50',
+          'transition-all duration-300 ease-out',
+          scrolled || menuOpen ? 'bg-black/60 backdrop-blur-md' : 'bg-transparent',
+        ].join(' ')}
+      >
       <div className="max-w-[1440px] mx-auto flex items-center justify-between px-4 py-3 sm:px-6 md:px-10 lg:px-[64px] lg:py-[24px]">
 
         {/* ── Left links (desktop) ── */}
@@ -131,7 +148,7 @@ export const Navbar: React.FC = () => {
       {menuOpen && (
         <nav
           aria-label="Primary navigation mobile"
-          className="lg:hidden bg-black/95 backdrop-blur-md border-t border-white/[0.06]"
+          className="lg:hidden bg-black/60 backdrop-blur-md border-t border-white/[0.06]"
         >
           <ul className="flex flex-col px-6 py-4 gap-1" role="list">
             {[
@@ -152,7 +169,8 @@ export const Navbar: React.FC = () => {
           </ul>
         </nav>
       )}
-    </header>
+      </header>
+    </>
   );
 };
 
