@@ -86,8 +86,8 @@ export const Navbar: React.FC = () => {
           />
         </a>
 
-        {/* ── Right: Contact Us + menu (desktop) ── */}
-        <div className="hidden lg:flex items-center justify-end gap-[63px] w-[300px]">
+        {/* ── Right: Contact Us (desktop) ── */}
+        <div className="hidden lg:flex items-center justify-end w-[300px]">
           <a
             href="#contact"
             className="flex flex-col items-start text-[16px] font-semibold uppercase tracking-[-0.03em] text-white"
@@ -95,34 +95,6 @@ export const Navbar: React.FC = () => {
             Contact Us
             <span className="block h-[1.32px] w-full bg-white" />
           </a>
-
-          <button
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((v) => !v)}
-            className="relative flex size-[60px] items-center justify-center rounded-full"
-          >
-            <span className="flex flex-col items-center gap-[6px]">
-              <span
-                className={[
-                  'block h-[2px] w-[20px] bg-white transition-all duration-200',
-                  menuOpen ? 'translate-y-[8px] rotate-45' : '',
-                ].join(' ')}
-              />
-              <span
-                className={[
-                  'block h-[2px] w-[20px] bg-white transition-all duration-200',
-                  menuOpen ? 'opacity-0' : '',
-                ].join(' ')}
-              />
-              <span
-                className={[
-                  'block h-[2px] w-[20px] bg-white transition-all duration-200',
-                  menuOpen ? '-translate-y-[8px] -rotate-45' : '',
-                ].join(' ')}
-              />
-            </span>
-          </button>
         </div>
 
         {/* ── Mobile: hamburger ── */}
