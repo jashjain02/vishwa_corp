@@ -29,8 +29,8 @@ export const AboutSection: React.FC = () => {
       <div className="mx-auto flex max-w-[1440px] flex-col gap-12 px-6 py-12 sm:px-8 md:px-12 md:py-16 lg:gap-[140px] lg:px-[64px] lg:py-[120px]">
 
         {/* ── Top row: copy + CTA, photo collage ── */}
-        <div className="flex w-full flex-col items-start gap-10 lg:flex-row lg:items-start lg:justify-between">
-          <div className="flex w-full flex-col items-start gap-6 lg:w-[584px] lg:shrink-0">
+        <div className="flex w-full flex-col items-start gap-10 wide:flex-row wide:items-start wide:justify-between">
+          <div className="flex w-full flex-col items-start gap-6 wide:w-[584px] wide:shrink-0">
             <div className="flex w-full flex-col items-start gap-4">
               <div className="flex w-fit items-center gap-2 rounded-full border border-[#006AFF]/20 bg-[#006AFF]/10 px-[13px] py-[7px]">
                 <BoltIcon />
@@ -63,7 +63,7 @@ export const AboutSection: React.FC = () => {
           </div>
 
           {/* Photo collage — mobile/tablet: simple stacked grid */}
-          <div className="grid w-full grid-cols-2 gap-4 lg:hidden">
+          <div className="grid w-full grid-cols-2 gap-4 wide:hidden">
             <div className="flex flex-col gap-1 rounded-2xl border border-black/[0.12] bg-white p-4">
               <p className="text-[28px] leading-[1.1] text-[#050505]">15+</p>
               <p className="text-[13px] leading-[1.3] text-[#4a5565]">
@@ -85,7 +85,7 @@ export const AboutSection: React.FC = () => {
           </div>
 
           {/* Photo collage — desktop: exact original pixel layout */}
-          <div className="relative hidden h-[613px] w-[640px] shrink-0 lg:block">
+          <div className="relative hidden h-[613px] w-[640px] shrink-0 wide:block">
             <div className="absolute left-0 top-[48px] flex w-[307.69px] flex-col gap-2 rounded-[20.5px] border border-black/[0.12] bg-white p-[24.6px]">
               <p className="text-[44px] leading-[49px] text-[#050505]">15+</p>
               <p className="text-[18.5px] leading-[24.6px] text-[#4a5565]">

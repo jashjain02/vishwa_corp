@@ -48,13 +48,13 @@ const HandshakeIcon: React.FC = () => (
 export const PartnershipSection: React.FC = () => {
   return (
     <section aria-labelledby="partnership-heading" className="w-full bg-[#f7f7f7]">
-      <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-10 px-6 py-12 sm:px-8 md:px-12 md:py-16 lg:flex-row lg:items-center lg:gap-16 lg:px-[64px] lg:py-[100px]">
+      <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-10 px-6 py-12 sm:px-8 md:px-12 md:py-16 wide:flex-row wide:items-center wide:gap-16 lg:px-[64px] lg:py-[100px]">
 
-        <div className="relative h-[260px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[360px] lg:h-[646px] lg:w-[657px]">
+        <div className="relative h-[260px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[360px] wide:h-[646px] wide:w-[657px]">
           <Image src={handshakePhoto} alt="Industrial partnership handshake at a precision manufacturing facility" fill className="object-cover" />
         </div>
 
-        <div className="flex w-full flex-col items-start gap-8 lg:w-[555px] lg:gap-10">
+        <div className="flex w-full flex-col items-start gap-8 wide:w-[555px] wide:gap-10">
           <div className="flex w-full flex-col items-start gap-4">
             <div className="flex w-fit items-center gap-2 rounded-full border border-[#006AFF]/20 bg-[#006AFF]/10 px-[13px] py-[7px]">
               <HandshakeIcon />
@@ -67,7 +67,7 @@ export const PartnershipSection: React.FC = () => {
               Building Strategic Engineering Partnerships Across Global &amp; Indian Markets.
             </h2>
 
-            <p className="w-full text-[15px] leading-[24px] tracking-[-0.31px] text-[#050505]/70 lg:w-[520px] lg:text-[16px] lg:leading-[26px]">
+            <p className="w-full text-[15px] leading-[24px] tracking-[-0.31px] text-[#050505]/70 wide:w-[520px] lg:text-[16px] lg:leading-[26px]">
               We partner with global manufacturers, industrial OEMs, and engineering brands for
               long-term supply collaborations across specialty copper alloys, advanced engineering
               materials and precision-machined components. From bulk raw material supply to

@@ -6,7 +6,11 @@ module.exports = {
     './sections/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        wide: '1400px',
+      },
+    },
   },
   plugins: [],
 };

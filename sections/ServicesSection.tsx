@@ -153,10 +153,10 @@ export const ServicesSection: React.FC = () => {
 
   return (
     <section aria-labelledby="services-heading" className="w-full bg-[#050505]">
-      <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-12 px-6 py-12 sm:px-8 md:px-12 md:py-16 lg:flex-row lg:gap-[80px] lg:px-[64px] lg:py-[120px]">
+      <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-12 px-6 py-12 sm:px-8 md:px-12 md:py-16 wide:flex-row wide:gap-[80px] lg:px-[64px] lg:py-[120px]">
 
         {/* ── Left: badge, heading, body, CTA ── */}
-        <div className="flex w-full flex-col items-start gap-8 lg:flex-1 lg:gap-10">
+        <div className="flex w-full flex-col items-start gap-8 wide:flex-1 lg:gap-10">
           <div className="flex w-full flex-col items-start gap-4">
             <div className="flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/20 px-[13px] py-[7px]">
               <span className="text-[12px] font-semibold uppercase tracking-[0.6px] text-white">
@@ -166,7 +166,7 @@ export const ServicesSection: React.FC = () => {
             <h2 id="services-heading" className="w-full text-[28px] font-medium leading-[1.1] text-white sm:text-[36px] md:text-[44px] lg:w-[min-content] lg:min-w-full lg:text-[56px]">
               Built for the World&apos;s Most Demanding Industries.
             </h2>
-            <p className="w-full text-[15px] leading-[24px] text-white/70 lg:w-[411px] lg:text-[16px] lg:leading-[26px]">
+            <p className="w-full text-[15px] leading-[24px] text-white/70 wide:w-[411px] lg:text-[16px] lg:leading-[26px]">
               Eighteen years of specialty copper, advanced engineering materials and precision
               manufacturing experience, supplying electrical, aerospace, defence, marine, energy
               and heavy engineering industries across the globe.
@@ -185,7 +185,7 @@ export const ServicesSection: React.FC = () => {
         </div>
 
         {/* ── Right: icon-rail accordion timeline ── */}
-        <div className="relative grid w-full grid-cols-[40px_1fr] gap-x-4 gap-y-[10px] sm:grid-cols-[48px_1fr] sm:gap-x-6 lg:w-[780px] lg:shrink-0 lg:grid-cols-[56px_1fr] lg:gap-x-[40px]">
+        <div className="relative grid w-full grid-cols-[40px_1fr] gap-x-4 gap-y-[10px] sm:grid-cols-[48px_1fr] sm:gap-x-6 wide:w-[780px] wide:shrink-0 wide:grid-cols-[56px_1fr] wide:gap-x-[40px]">
           <div className="absolute bottom-5 left-5 top-5 w-px bg-white/10 sm:bottom-6 sm:left-6 sm:top-6 lg:bottom-[28px] lg:left-[28px] lg:top-[28px]" />
 
           {SERVICES.map((service, i) => {
@@ -193,9 +193,9 @@ export const ServicesSection: React.FC = () => {
             const { Icon } = service;
             return (
               <React.Fragment key={service.title}>
-                <div className="relative z-10 flex size-10 items-center justify-center rounded-full p-1 sm:size-12 lg:size-[56px]" style={{ background: isOpen ? 'rgba(0,106,255,0.18)' : '#121212' }}>
+                <div className="relative z-10 flex size-10 items-center justify-center rounded-full p-1 sm:size-12 wide:size-[56px]" style={{ background: isOpen ? 'rgba(0,106,255,0.18)' : '#121212' }}>
                   <div
-                    className="flex size-8 items-center justify-center rounded-full sm:size-10 lg:size-[48px]"
+                    className="flex size-8 items-center justify-center rounded-full sm:size-10 wide:size-[48px]"
                     style={{ background: isOpen ? '#006AFF' : '#252525' }}
                   >
                     <Icon />

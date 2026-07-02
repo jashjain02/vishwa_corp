@@ -85,9 +85,9 @@ export const ContactSection: React.FC = () => {
               <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-[#050505]/10">
                 <MailIcon />
               </div>
-              <div className="flex flex-col gap-2 text-[18px]">
+              <div className="flex min-w-0 flex-1 flex-col gap-2 text-[18px]">
                 <p className="text-[#050505]/60">Email</p>
-                <p className="text-[#050505]">info@vishwacorporation.com</p>
+                <p className="break-words text-[#050505]">info@vishwacorporation.com</p>
               </div>
             </div>
 
@@ -95,9 +95,9 @@ export const ContactSection: React.FC = () => {
               <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-[#050505]/10">
                 <PhoneIcon />
               </div>
-              <div className="flex flex-col gap-2 text-[18px]">
+              <div className="flex min-w-0 flex-1 flex-col gap-2 text-[18px]">
                 <p className="text-[#050505]/60">Phone</p>
-                <p className="text-[#050505]">+91 9619500650</p>
+                <p className="break-words text-[#050505]">+91 9619500650</p>
               </div>
             </div>
 
@@ -105,9 +105,9 @@ export const ContactSection: React.FC = () => {
               <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-[#050505]/10">
                 <LocationIcon />
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex min-w-0 flex-1 flex-col gap-2">
                 <p className="text-[18px] text-[#050505]/60">Address</p>
-                <p className="text-[20px] text-[#050505]">Gulalwadi, Mumbai, Maharashtra</p>
+                <p className="break-words text-[20px] text-[#050505]">Gulalwadi, Mumbai, Maharashtra</p>
               </div>
             </div>
           </div>
