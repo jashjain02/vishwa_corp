@@ -1,12 +1,30 @@
 import React from 'react';
 import logoMark from '../assets/images/logo-mark.png';
 
-const FOOTER_LINKS = ['About', 'Global Reach', 'Why Choose Us', 'Contact'] as const;
+const FOOTER_LINKS = [
+  { label: 'About', href: '#about' },
+  { label: 'Global Reach', href: '#global-reach' },
+  { label: 'Why Choose Us', href: '#about' },
+  { label: 'Contact', href: '#contact' },
+] as const;
 
 const GearIcon: React.FC = () => (
-  <svg width="56" height="56" viewBox="0 0 24 24" fill="white" aria-hidden="true" style={{ transform: 'rotate(-1deg)' }}>
-    <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm9.4 5.5-1.6.9c.05.5.05 1 0 1.5l1.6.9c.3.2.4.6.2.9l-1.5 2.6c-.2.3-.6.4-.9.3l-1.7-.7c-.4.3-.9.6-1.4.8l-.3 1.8c-.05.4-.4.6-.7.6h-3c-.4 0-.7-.2-.7-.6l-.3-1.8c-.5-.2-1-.5-1.4-.8l-1.7.7c-.3.1-.7 0-.9-.3l-1.5-2.6c-.2-.3-.1-.7.2-.9l1.6-.9a6.6 6.6 0 0 1 0-1.5l-1.6-.9c-.3-.2-.4-.6-.2-.9l1.5-2.6c.2-.3.6-.4.9-.3l1.7.7c.4-.3.9-.6 1.4-.8l.3-1.8c.05-.4.4-.6.7-.6h3c.4 0 .7.2.7.6l.3 1.8c.5.2 1 .5 1.4.8l1.7-.7c.3-.1.7 0 .9.3l1.5 2.6c.2.3.1.7-.2.9Z" />
-  </svg>
+  <span className="inline-block shrink-0" style={{ transform: 'translateY(0.05em)' }}>
+    <svg
+      width="0.9em"
+      height="0.9em"
+      viewBox="0 0 24 24"
+      fill="white"
+      aria-hidden="true"
+      className="animate-gear-spin block"
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 0 0-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 0 0-2.282.819l-.922 1.597a1.875 1.875 0 0 0 .432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 0 0 0 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 0 0-.432 2.385l.922 1.597a1.875 1.875 0 0 0 2.282.818l1.019-.382c.115-.043.283-.032.45.083.312.214.641.405.985.57.182.088.277.228.297.348l.178 1.072c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.348a7.507 7.507 0 0 0 .985-.57c.167-.115.335-.126.45-.083l1.02.382a1.875 1.875 0 0 0 2.28-.819l.923-1.597a1.875 1.875 0 0 0-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.598 7.598 0 0 0 0-1.139c-.015-.2.059-.352.153-.43l.841-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 0 0-2.282-.818l-1.02.382c-.114.043-.282.032-.449-.083a7.51 7.51 0 0 0-.985-.57c-.183-.088-.277-.228-.297-.348l-.179-1.072a1.875 1.875 0 0 0-1.85-1.567h-1.843ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z"
+      />
+    </svg>
+  </span>
 );
 
 /** Figma node 34:3932 — footer with "PRECISI⚙N ENGINEERED for India's Elite Industries" */
@@ -58,11 +76,11 @@ export const FooterSection: React.FC = () => {
             <nav aria-label="Footer navigation" className="flex flex-wrap items-center gap-x-6 gap-y-3 lg:justify-between lg:gap-10">
               {FOOTER_LINKS.map((link) => (
                 <a
-                  key={link}
-                  href="#"
+                  key={link.label}
+                  href={link.href}
                   className="whitespace-nowrap text-[14px] tracking-[-0.15px] text-white hover:text-white/70 lg:text-[16px]"
                 >
-                  {link}
+                  {link.label}
                 </a>
               ))}
             </nav>

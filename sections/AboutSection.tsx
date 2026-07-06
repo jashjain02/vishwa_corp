@@ -25,7 +25,7 @@ const ArrowRightIcon: React.FC = () => (
 /** Figma node 34:3744 — "Specialty Copper & Copper Alloys, Manufactured with Precision" */
 export const AboutSection: React.FC = () => {
   return (
-    <section aria-labelledby="about-heading" className="w-full bg-white">
+    <section id="about" aria-labelledby="about-heading" className="w-full bg-white">
       <div className="mx-auto flex max-w-[1440px] flex-col gap-12 px-6 py-12 sm:px-8 md:px-12 md:py-16 lg:gap-[140px] lg:px-[64px] lg:py-[120px]">
 
         {/* ── Top row: copy + CTA, photo collage ── */}

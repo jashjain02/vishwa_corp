@@ -75,3 +75,20 @@ img {
     padding-inline: 20px;
   }
 }
+
+@keyframes gear-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-gear-spin {
+  animation: gear-spin 4s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-gear-spin {
+    animation: none;
+  }
+}

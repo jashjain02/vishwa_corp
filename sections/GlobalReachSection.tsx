@@ -11,7 +11,7 @@ const ArrowDiagonalIcon: React.FC = () => (
 /** Figma node 34:3860 — "Global Reach. Local Reliability." */
 export const GlobalReachSection: React.FC = () => {
   return (
-    <section aria-labelledby="global-reach-heading" className="w-full bg-white">
+    <section id="global-reach" aria-labelledby="global-reach-heading" className="w-full bg-white">
       <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-8 pt-12 sm:pt-16 md:pt-20 lg:gap-[40px] lg:pt-[100px]">
         <div className="flex w-full flex-col items-start gap-6 px-6 sm:px-8 md:px-12 lg:flex-row lg:items-start lg:justify-between lg:gap-0 lg:px-[65px]">
           <h2 id="global-reach-heading" className="w-full text-[34px] font-medium leading-[1.1] text-[#050505] sm:text-[48px] md:text-[64px] lg:w-[774px] lg:text-[86px]">

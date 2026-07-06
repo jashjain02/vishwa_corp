@@ -107,7 +107,7 @@ export const ContactSection: React.FC = () => {
               </div>
               <div className="flex min-w-0 flex-1 flex-col gap-2">
                 <p className="text-[18px] text-[#050505]/60">Address</p>
-                <p className="break-words text-[20px] text-[#050505]">Gulalwadi, Mumbai, Maharashtra</p>
+                <p className="break-words text-[20px] text-[#050505]">72, C.P. Tank Road, Shop No. 1, Mumbai - 400 004</p>
               </div>
             </div>
           </div>
