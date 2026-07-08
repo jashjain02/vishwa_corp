@@ -97,7 +97,7 @@ export const ContactSection: React.FC = () => {
               </div>
               <div className="flex min-w-0 flex-1 flex-col gap-2 text-[18px]">
                 <p className="text-[#050505]/60">Phone</p>
-                <p className="break-words text-[#050505]">+91 9619500650</p>
+                <p className="break-words text-[#050505]">+91 91375 34627</p>
               </div>
             </div>
 

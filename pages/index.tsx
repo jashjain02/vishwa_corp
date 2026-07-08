@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { Navbar } from '../components/Navbar';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 import { HeroSection } from '../sections/HeroSection';
 import { ExportSection } from '../sections/ExportSection';
 import { StatsSection } from '../sections/StatsSection';
@@ -37,6 +38,7 @@ const HomePage: React.FC = () => {
         <ContactSection />
       </main>
       <FooterSection />
+      <WhatsAppButton />
     </>
   );
 };
