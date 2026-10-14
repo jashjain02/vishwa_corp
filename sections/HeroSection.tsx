@@ -12,6 +12,9 @@ import clientLogo7 from '../assets/images/client-logo-7.png';
 import clientLogo8 from '../assets/images/client-logo-8.png';
 import clientLogo9 from '../assets/images/client-logo-9.png';
 import clientLogo10 from '../assets/images/client-logo-10.png';
+import clientLogo11 from '../assets/images/client-logo-11.png';
+import clientLogo12 from '../assets/images/client-logo-12.png';
+import clientLogo13 from '../assets/images/client-logo-13.png';
 
 const CLIENT_LOGOS = [
   clientLogo1,
@@ -24,6 +27,9 @@ const CLIENT_LOGOS = [
   clientLogo8,
   clientLogo9,
   clientLogo10,
+  clientLogo11,
+  clientLogo12,
+  clientLogo13,
 ];
 
 const SparkIcon: React.FC = () => (
@@ -129,16 +135,26 @@ export const HeroSection: React.FC = () => {
         <div className="h-px w-full bg-gradient-to-r from-white/0 via-white/20 to-white/0" />
 
         {/* Trusted-by + logo strip */}
-        <div className="flex flex-col items-center gap-6 md:gap-8 lg:gap-10">
+        <div className="relative flex flex-col items-center gap-6 md:gap-8 lg:gap-10">
+          {/* Soft glow lifting this section off the black background */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[220px] w-[90%] max-w-[820px] -translate-x-1/2 -translate-y-1/2 blur-3xl md:h-[280px]"
+            style={{
+              background:
+                'radial-gradient(ellipse 60% 60% at 50% 50%, rgba(0,106,255,0.35) 0%, rgba(0,106,255,0.1) 55%, rgba(0,0,0,0) 80%)',
+            }}
+          />
+
           <p className="text-center text-[13px] leading-[1.4] tracking-[-0.648px] text-white/[0.64] sm:text-[14px] lg:text-[16px] lg:leading-[31.2px]">
             Trusted by India&apos;s Leading Industrial OEMs
           </p>
 
           <div className="relative w-full max-w-[1159px] overflow-hidden">
-            <div className="flex items-center justify-center gap-6 overflow-x-auto sm:gap-8 md:gap-[44.5px]">
-              {CLIENT_LOGOS.map((src, i) => (
-                <div key={i} className="relative size-12 shrink-0 opacity-70 mix-blend-luminosity sm:size-14 lg:size-[72px]">
-                  <Image src={src} alt="" fill className="object-contain" />
+            <div className="flex w-max animate-marquee items-center gap-6 sm:gap-8 md:gap-[44.5px]">
+              {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((src, i) => (
+                <div key={i} className="flex h-12 shrink-0 items-center justify-center opacity-70 mix-blend-luminosity sm:h-14 lg:h-[72px]">
+                  <Image src={src} alt="" className="h-full w-auto max-w-[160px] object-contain" />
                 </div>
               ))}
             </div>
