@@ -53,9 +53,13 @@ export const Navbar: React.FC = () => {
       <header
         role="banner"
         className={[
-          'fixed top-0 left-0 right-0 z-50',
+          'fixed left-0 right-0 z-50',
           'transition-all duration-300 ease-out',
-          scrolled || menuOpen ? 'bg-black/60 backdrop-blur-md' : 'bg-transparent',
+          menuOpen
+            ? 'top-0 inset-x-0 rounded-none border border-transparent bg-black/60 backdrop-blur-md'
+            : scrolled
+            ? 'top-3 inset-x-3 rounded-full border border-white/10 bg-black/60 shadow-lg shadow-black/30 backdrop-blur-md sm:inset-x-6 sm:top-4 md:inset-x-10 lg:inset-x-[64px]'
+            : 'top-0 inset-x-0 rounded-none border border-transparent bg-transparent',
         ].join(' ')}
       >
       <div className="max-w-[1440px] mx-auto flex items-center justify-between px-4 py-3 sm:px-6 md:px-10 lg:px-[64px] lg:py-[24px]">
@@ -81,10 +85,10 @@ export const Navbar: React.FC = () => {
         <a
           href="/"
           aria-label="Vishwa Corporation — home"
-          className="relative h-[22px] w-[120px] overflow-hidden md:h-[31px] md:w-[170px] lg:h-[40px] lg:w-[222px]"
+          className="relative h-[27.5px] w-[150px] overflow-hidden md:h-[38.75px] md:w-[212.5px] lg:h-[50px] lg:w-[277.5px]"
         >
           <span
-            className="absolute left-[0.11px] top-[-8.31px] block h-[39.92px] w-[119.78px] bg-white md:left-[0.16px] md:top-[-11.78px] md:h-[56.55px] md:w-[169.69px] lg:left-[0.21px] lg:top-[-15.38px] lg:h-[73.85px] lg:w-[221.59px]"
+            className="absolute left-[0.14px] top-[-10.39px] block h-[49.9px] w-[149.73px] bg-white md:left-[0.2px] md:top-[-14.73px] md:h-[70.69px] md:w-[212.11px] lg:left-[0.26px] lg:top-[-19.23px] lg:h-[92.31px] lg:w-[276.99px]"
             style={{
               WebkitMaskImage: `url(${logoMark.src})`,
               maskImage: `url(${logoMark.src})`,

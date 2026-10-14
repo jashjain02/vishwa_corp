@@ -38,14 +38,14 @@ export const FooterSection: React.FC = () => {
           'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(0,90,220,0.55) 0%, rgba(2,30,80,0.4) 45%, rgba(5,5,5,0) 75%)',
       }}
     >
-      <div className="relative z-10 mx-auto flex min-h-0 max-w-[1440px] flex-col justify-center gap-8 px-6 py-12 sm:px-8 md:px-12 md:py-16 lg:min-h-[743px] lg:gap-[42px] lg:px-[64px] lg:py-[80px]">
+      <div className="relative z-10 mx-auto flex min-h-0 max-w-[1440px] flex-col justify-center gap-4 px-6 py-12 sm:px-8 md:px-12 md:py-16 lg:min-h-[743px] lg:gap-5 lg:px-[64px] lg:py-[80px]">
 
         <div
-          className="relative h-[27px] w-[140px] overflow-hidden md:h-[34px] md:w-[175px] lg:h-[40px] lg:w-[205px]"
+          className="relative h-[32.4px] w-[174.55px] overflow-hidden md:h-[40.8px] md:w-[218.2px] lg:h-[48px] lg:w-[255.6px]"
           aria-label="Vishwa Corporation"
         >
           <span
-            className="absolute left-0 top-[-9.56px] block h-[48.49px] w-[145.46px] bg-white md:top-[-11.95px] md:h-[60.61px] md:w-[181.83px] lg:top-[-14px] lg:h-[71px] lg:w-[213px]"
+            className="absolute left-0 top-[-11.47px] block h-[58.19px] w-[174.55px] bg-white md:top-[-14.34px] md:h-[72.73px] md:w-[218.2px] lg:top-[-16.8px] lg:h-[85.2px] lg:w-[255.6px]"
             style={{
               WebkitMaskImage: `url(${logoMark.src})`,
               maskImage: `url(${logoMark.src})`,
