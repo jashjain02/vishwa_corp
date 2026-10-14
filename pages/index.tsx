@@ -9,7 +9,8 @@ import { AboutSection } from '../sections/AboutSection';
 import { IndustriesSection } from '../sections/IndustriesSection';
 import { AdvancedMaterialsSection } from '../sections/AdvancedMaterialsSection';
 import { ServicesSection } from '../sections/ServicesSection';
-import { InnovationSection } from '../sections/InnovationSection';
+// Hidden for now — section file kept intact; uncomment to restore.
+// import { InnovationSection } from '../sections/InnovationSection';
 import { ProcessSection } from '../sections/ProcessSection';
 import { PartnershipSection } from '../sections/PartnershipSection';
 import { GlobalReachSection } from '../sections/GlobalReachSection';
@@ -36,7 +37,7 @@ const HomePage: React.FC = () => {
         <IndustriesSection />
         <AdvancedMaterialsSection />
         <ServicesSection />
-        <InnovationSection />
+        {/* <InnovationSection /> */}
         <ProcessSection />
         <PartnershipSection />
         <GlobalReachSection />
