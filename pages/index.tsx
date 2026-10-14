@@ -25,7 +25,7 @@ const HomePage: React.FC = () => {
           name="description"
           content="Vishwa Corporation manufactures specialty copper alloys, advanced engineering materials and precision CNC-machined components for aerospace, defence, marine, electrical and industrial applications. Exporting from India to 45+ countries."
         />
-        <link rel="canonical" href="https://vishwa.etceteratech.in/" />
+        <link rel="canonical" href="https://vishwacorporation.com/" />
       </Head>
       <Navbar />
       <main>
