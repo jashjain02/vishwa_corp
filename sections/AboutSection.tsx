@@ -85,24 +85,29 @@ export const AboutSection: React.FC = () => {
           </div>
 
           {/* Photo collage — desktop: exact original pixel layout */}
-          <div className="relative hidden h-[613px] w-[640px] shrink-0 wide:block">
-            <div className="absolute left-0 top-[48px] flex w-[307.69px] flex-col gap-2 rounded-[20.5px] border border-black/[0.12] bg-white p-[24.6px]">
-              <p className="text-[44px] leading-[49px] text-[#050505]">15+</p>
-              <p className="text-[18.5px] leading-[24.6px] text-[#4a5565]">
-                Specialty alloys &amp; engineering materials manufactured in-house
-              </p>
+          {/* Two stacked columns (flow layout, not absolute) so card text can wrap without overlapping photos */}
+          <div className="hidden w-[640px] shrink-0 items-start gap-[24.62px] wide:flex">
+            <div className="flex w-[307.69px] flex-col gap-3 pt-[48px]">
+              <div className="flex flex-col gap-2 rounded-[20.5px] border border-black/[0.12] bg-white p-[24.6px]">
+                <p className="text-[44px] leading-[49px] text-[#050505]">15+</p>
+                <p className="text-[18.5px] leading-[24.6px] text-[#4a5565]">
+                  Specialty alloys &amp; engineering materials manufactured in-house
+                </p>
+              </div>
+              <div className="relative h-[395.9px] w-full overflow-hidden rounded-[16.4px]">
+                <Image src={precisionParts} alt="Precision-machined copper alloy components" fill className="object-cover" />
+              </div>
             </div>
-            <div className="absolute left-0 top-[217.44px] h-[395.9px] w-[307.69px] overflow-hidden rounded-[16.4px]">
-              <Image src={precisionParts} alt="Precision-machined copper alloy components" fill className="object-cover" />
-            </div>
-            <div className="absolute left-[332.31px] top-0 h-[398.97px] w-[307.69px] overflow-hidden rounded-[16.4px]">
-              <Image src={cncMachining} alt="CNC machining of an engineering-grade component" fill className="object-cover" />
-            </div>
-            <div className="absolute left-[332.31px] top-[410.97px] flex w-[307.69px] flex-col gap-2 rounded-[20.5px] border border-black/[0.12] bg-white p-[24.6px] text-[#050505]">
-              <p className="text-[44px] leading-[49px]">500+</p>
-              <p className="text-[18.5px] leading-[24.6px]">
-                Industrial clients served across 45+ countries
-              </p>
+            <div className="flex w-[307.69px] flex-col gap-3">
+              <div className="relative h-[398.97px] w-full overflow-hidden rounded-[16.4px]">
+                <Image src={cncMachining} alt="CNC machining of an engineering-grade component" fill className="object-cover" />
+              </div>
+              <div className="flex flex-col gap-2 rounded-[20.5px] border border-black/[0.12] bg-white p-[24.6px] text-[#050505]">
+                <p className="text-[44px] leading-[49px]">500+</p>
+                <p className="text-[18.5px] leading-[24.6px]">
+                  Industrial clients served across 45+ countries
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -2,10 +2,11 @@ import React from 'react';
 import logoMark from '../assets/images/logo-mark.png';
 
 const FOOTER_LINKS = [
-  { label: 'About', href: '#about' },
-  { label: 'Global Reach', href: '#global-reach' },
-  { label: 'Why Choose Us', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', href: '/#about' },
+  { label: 'Products', href: '/products/' },
+  { label: 'Industries', href: '/#industries' },
+  { label: 'Global Reach', href: '/#global-reach' },
+  { label: 'Contact', href: '/#contact' },
 ] as const;
 
 const GearIcon: React.FC = () => (

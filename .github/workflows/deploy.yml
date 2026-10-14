@@ -32,6 +32,10 @@ jobs:
 
       - name: Build static export
         run: npm run build
+        env:
+          # Optional public form endpoint (e.g. Formspree). Set as a repository
+          # variable named ENQUIRY_ENDPOINT. When empty, forms hand off to email.
+          NEXT_PUBLIC_ENQUIRY_ENDPOINT: ${{ vars.ENQUIRY_ENDPOINT }}
 
       - name: Disable Jekyll processing
         run: touch ./out/.nojekyll

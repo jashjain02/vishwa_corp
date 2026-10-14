@@ -3,9 +3,19 @@
 import React, { useState, useEffect } from 'react';
 import logoMark from '../assets/images/logo-mark.png';
 
+// Root-relative so the links also work from /products/ pages.
 const LEFT_LINKS = [
-  { href: '#export', lines: ['Request', 'a Quote'] },
-  { href: '#partner', lines: ['Partner', 'with Us'] },
+  { href: '/products/', lines: ['Our', 'Materials'] },
+  { href: '/products/#enquire', lines: ['Request', 'a Quote'] },
+  { href: '/#partner', lines: ['Partner', 'with Us'] },
+] as const;
+
+const MOBILE_LINKS = [
+  { href: '/products/', label: 'Our Materials' },
+  { href: '/#industries', label: 'Industries' },
+  { href: '/products/#enquire', label: 'Request a Quote' },
+  { href: '/#partner', label: 'Partner with Us' },
+  { href: '/#contact', label: 'Contact Us' },
 ] as const;
 
 /**
@@ -53,7 +63,7 @@ export const Navbar: React.FC = () => {
         {/* ── Left links (desktop) ── */}
         <nav
           aria-label="Primary navigation left"
-          className="hidden lg:flex items-center gap-[60px] w-[300px]"
+          className="hidden lg:flex items-center gap-[40px] w-[340px]"
         >
           {LEFT_LINKS.map((link) => (
             <a
@@ -87,9 +97,9 @@ export const Navbar: React.FC = () => {
         </a>
 
         {/* ── Right: Contact Us (desktop) ── */}
-        <div className="hidden lg:flex items-center justify-end w-[300px]">
+        <div className="hidden lg:flex items-center justify-end w-[340px]">
           <a
-            href="#contact"
+            href="/#contact"
             className="flex flex-col items-start text-[16px] font-semibold uppercase tracking-[-0.03em] text-white"
           >
             Contact Us
@@ -123,11 +133,7 @@ export const Navbar: React.FC = () => {
           className="lg:hidden bg-black/60 backdrop-blur-md border-t border-white/[0.06]"
         >
           <ul className="flex flex-col px-6 py-4 gap-1" role="list">
-            {[
-              { href: '#export', label: 'Request a Quote' },
-              { href: '#partner', label: 'Partner with Us' },
-              { href: '#contact', label: 'Contact Us' },
-            ].map((link) => (
+            {MOBILE_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}

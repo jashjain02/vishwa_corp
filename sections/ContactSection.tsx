@@ -1,6 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+import { EMAIL_RE, ENQUIRY_EMAIL, deliverEnquiry, mailtoHref, type EnquiryPayload } from '../lib/enquiry';
 
 const BoltIcon: React.FC = () => (
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -57,6 +58,35 @@ const FIELD_BASE =
 
 /** Figma node 34:3870 — "We Ship from India to Your Facility Worldwide." */
 export const ContactSection: React.FC = () => {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'handoff' | 'error'>('idle');
+  const [error, setError] = useState('');
+  const [payload, setPayload] = useState<EnquiryPayload | null>(null);
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const d = new FormData(e.currentTarget);
+    const get = (k: string) => String(d.get(k) ?? '').trim();
+    const name = [get('firstName'), get('lastName')].filter(Boolean).join(' ');
+    const email = get('email');
+    if (!name || !EMAIL_RE.test(email)) {
+      setError('Please enter your name and a valid email address.');
+      setStatus('error');
+      return;
+    }
+    const p: EnquiryPayload = { name, email, phone: get('phone'), message: get('message'), source: 'Homepage contact form' };
+    setPayload(p);
+    setStatus('sending');
+    const result = await deliverEnquiry(p);
+    if (result.status === 'sent') setStatus('sent');
+    else if (result.status === 'handoff') {
+      setStatus('handoff');
+      window.location.href = mailtoHref(p);
+    } else {
+      setError(`${result.message} Please try again or email ${ENQUIRY_EMAIL}.`);
+      setStatus('error');
+    }
+  };
+
   return (
     <section id="contact" aria-labelledby="contact-heading" className="w-full bg-white">
       <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-12 px-6 py-12 sm:px-8 md:px-12 md:py-16 lg:flex-row lg:items-center lg:gap-16 lg:px-[100px] lg:py-[120px]">
@@ -114,44 +144,59 @@ export const ContactSection: React.FC = () => {
         </div>
 
         {/* ── Right: form card ── */}
-        <form className="flex w-full shrink-0 flex-col gap-6 rounded-[24px] bg-[#f7f7f7] p-5 sm:gap-8 sm:p-8 lg:w-[592px]">
+        <form noValidate onSubmit={onSubmit} className="flex w-full shrink-0 flex-col gap-6 rounded-[24px] bg-[#f7f7f7] p-5 sm:gap-8 sm:p-8 lg:w-[592px]">
           <div className="flex flex-col gap-3 sm:flex-row">
             <label className="flex flex-1 flex-col gap-3 text-[14px] font-medium text-[#050505]">
               First Name
-              <input type="text" placeholder="e.g. John" className={FIELD_BASE} />
+              <input name="firstName" type="text" autoComplete="given-name" required placeholder="e.g. John" className={FIELD_BASE} />
             </label>
             <label className="flex flex-1 flex-col gap-3 text-[14px] font-medium text-[#050505]">
               Last Name
-              <input type="text" placeholder="e.g. Doe" className={FIELD_BASE} />
+              <input name="lastName" type="text" autoComplete="family-name" placeholder="e.g. Doe" className={FIELD_BASE} />
             </label>
           </div>
 
           <div className="flex flex-col gap-3 sm:flex-row">
             <label className="flex flex-1 flex-col gap-3 text-[14px] font-medium text-[#050505]">
               Email
-              <input type="email" placeholder="e.g. johndoe@gmail.com" className={FIELD_BASE} />
+              <input name="email" type="email" autoComplete="email" required placeholder="e.g. johndoe@gmail.com" className={FIELD_BASE} />
             </label>
             <label className="flex flex-1 flex-col gap-3 text-[14px] font-medium text-[#050505]">
               Phone
-              <input type="tel" placeholder="e.g. (+91) 8912 3456 789" className={FIELD_BASE} />
+              <input name="phone" type="tel" autoComplete="tel" placeholder="e.g. (+91) 8912 3456 789" className={FIELD_BASE} />
             </label>
           </div>
 
           <label className="flex flex-col gap-3 text-[14px] font-medium text-[#050505]">
             Message
             <textarea
+              name="message"
               placeholder="Write your message here..."
               rows={5}
               className={`${FIELD_BASE} h-[180px] resize-none`}
             />
           </label>
 
+          {status === 'sent' && (
+            <p role="status" className="text-[14px] font-medium text-[#11733a]">Message received — we will reply by email.</p>
+          )}
+          {status === 'handoff' && payload && (
+            <p role="status" className="text-[14px] leading-[22px] text-[#050505]/80">
+              Your email app should now be open with this message. It has <strong>not been sent</strong> until you press Send. Nothing opened?{' '}
+              <a className="text-[#006AFF] underline" href={mailtoHref(payload)}>Try again</a> or email {ENQUIRY_EMAIL}.
+            </p>
+          )}
+          {status === 'error' && (
+            <p role="alert" className="text-[14px] text-[#d92d20]">{error}</p>
+          )}
+
           <button
             type="submit"
-            className="flex h-[52px] w-fit items-center gap-2 rounded-full bg-[#006AFF] px-8 py-[14px]"
+            disabled={status === 'sending'}
+            className="flex h-[52px] w-fit items-center gap-2 rounded-full bg-[#006AFF] px-8 py-[14px] disabled:opacity-60"
           >
             <span className="whitespace-nowrap text-[16px] font-semibold tracking-[-0.32px] text-white">
-              Send Message
+              {status === 'sending' ? 'Sending…' : 'Send Message'}
             </span>
             <ArrowRightIcon />
           </button>

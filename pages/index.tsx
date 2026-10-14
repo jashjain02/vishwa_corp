@@ -6,6 +6,8 @@ import { HeroSection } from '../sections/HeroSection';
 import { ExportSection } from '../sections/ExportSection';
 import { StatsSection } from '../sections/StatsSection';
 import { AboutSection } from '../sections/AboutSection';
+import { IndustriesSection } from '../sections/IndustriesSection';
+import { AdvancedMaterialsSection } from '../sections/AdvancedMaterialsSection';
 import { ServicesSection } from '../sections/ServicesSection';
 import { InnovationSection } from '../sections/InnovationSection';
 import { ProcessSection } from '../sections/ProcessSection';
@@ -23,6 +25,7 @@ const HomePage: React.FC = () => {
           name="description"
           content="Vishwa Corporation manufactures specialty copper alloys, advanced engineering materials and precision CNC-machined components for aerospace, defence, marine, electrical and industrial applications. Exporting from India to 45+ countries."
         />
+        <link rel="canonical" href="https://vishwa.etceteratech.in/" />
       </Head>
       <Navbar />
       <main>
@@ -30,6 +33,8 @@ const HomePage: React.FC = () => {
         <ExportSection />
         <StatsSection />
         <AboutSection />
+        <IndustriesSection />
+        <AdvancedMaterialsSection />
         <ServicesSection />
         <InnovationSection />
         <ProcessSection />
